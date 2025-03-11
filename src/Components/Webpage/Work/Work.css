@@ -1,0 +1,137 @@
+/* Mobile-first approach */
+.how-it-works {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    color: rgb(0, 0, 0);
+    overflow: hidden; /* Add this to prevent horizontal scroll during animations */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.section-title p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 20px;
+}
+
+.step-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    text-align: left;
+    opacity: 0;
+    transform: translateX(-50px);
+    visibility: hidden;
+    padding: 20px;
+    background: transparent;
+}
+
+.step-card.step-visible {
+    animation: slideInFromLeft 0.8s forwards ease-out;
+    visibility: visible;
+}
+
+.step-number {
+    font-size: 64px;
+    font-weight: 700;
+    color: #5865f2;
+    line-height: 1;
+    min-width: 100px;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #000;
+}
+
+.step-content p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) {
+    .how-it-works {
+        padding: 80px 40px;
+    }
+
+    .steps-container {
+        gap: 64px;
+        padding: 40px;
+    }
+
+    .step-number {
+        font-size: 72px;
+    }
+
+    .step-content h3 {
+        font-size: 1.75rem;
+    }
+
+    .step-content p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    .how-it-works {
+        padding: 100px 60px;
+    }
+
+    .section-title h2 {
+        font-size: 3rem;
+    }
+
+    .steps-container {
+        gap: 80px;
+    }
+
+    .step-number {
+        font-size: 96px;
+    }
+
+    .step-content h3 {
+        font-size: 2rem;
+    }
+
+    .step-content p {
+        font-size: 1.2rem;
+    }
+}

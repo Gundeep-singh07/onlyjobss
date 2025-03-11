@@ -1,0 +1,132 @@
+:root {
+    --primary: #5865f2;
+    --background: #404eed;
+    --text: #fff;
+    --secondary-bg: #f6f6f6;
+    --dark-text: #23272a;
+    --success: #3ba55c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "gg sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+    line-height: 1.625;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3.75rem;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 40px;
+    background: var(--background);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 45px;
+    width: auto;
+    display: block;
+    margin: auto 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.button {
+    padding: 12px 24px;
+    border-radius: 40px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.button-white {
+    background: var(--text);
+    color: var(--dark-text);
+}
+
+.button-white:hover {
+    color: var(--primary);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.button-dark {
+    background: var(--dark-text);
+    color: var(--text);
+}
+
+.button-dark:hover {
+    background: #36393f;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        padding: 16px 24px;
+    }
+
+    .logo img {
+        height: 35px; /* Slightly smaller on mobile */
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-buttons {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .button {
+        padding: 18px 36px;
+        border-radius: 50px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 858px) {
+    .nav-links a {
+        display: none;
+    }
+}

@@ -1,0 +1,7 @@
+/* Check for any global styles that might be affecting our component */
+/* Particularly look for styles targeting:
+   - section elements
+   - .section class
+   - profile-related classes
+   - card-related styles
+*/

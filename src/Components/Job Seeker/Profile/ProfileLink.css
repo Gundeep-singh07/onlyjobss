@@ -1,0 +1,118 @@
+.profile-link-container {
+    margin: 20px 0;
+    width: 100%;
+}
+
+.profile-link {
+    display: flex;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    align-items: center;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+.profile-image-wrapper {
+    position: relative;
+    margin-right: 20px;
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4f46e5;
+    transition: transform 0.3s ease;
+}
+
+.online-indicator {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    width: 12px;
+    height: 12px;
+    background-color: #10b981;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 5px 0;
+}
+
+.profile-info p {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0 0 15px 0;
+}
+
+.view-profile-button {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-profile-button:hover {
+    background-color: #4338ca;
+    transform: translateY(-2px);
+}
+
+/* Improved mobile responsiveness */
+@media (max-width: 768px) {
+    .profile-link {
+        padding: 15px;
+    }
+
+    .profile-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .profile-info h3 {
+        font-size: 16px;
+    }
+
+    .profile-info p {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+
+    .view-profile-button {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 600px) {
+    .profile-link {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-image-wrapper {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .view-profile-button {
+        width: 100%;
+    }
+}

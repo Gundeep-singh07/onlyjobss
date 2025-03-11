@@ -1,0 +1,114 @@
+/* Mobile First */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column for mobile */
+  gap: 24px;
+  margin-top: 32px;
+  padding: 0 16px; /* Ensuring proper spacing on mobile */
+}
+
+.price-card {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.price-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: var(--dark-text);
+}
+
+.price {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 20px 0;
+  color: var(--dark-text);
+}
+
+.price-features {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.price-features li {
+  margin: 10px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.price-features li::before {
+  content: "✓";
+  color: var(--success);
+  font-weight: bold;
+}
+
+/* Tablet (≥ 768px) */
+@media (min-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
+    gap: 32px;
+  }
+}
+
+/* Desktop (≥ 1024px) */
+@media (min-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr); /* Three columns on larger screens */
+    gap: 40px;
+    max-width: 1200px; /* Ensuring it fits well */
+    margin: 40px auto; /* Centering the section */
+  }
+
+  .price-card {
+    padding: 32px;
+  }
+
+  .price-card h3 {
+    font-size: 24px;
+  }
+
+  .price {
+    font-size: 48px;
+  }
+}
+
+/* Testimonials Section */
+.testimonials {
+  background: var(--secondary-bg);
+  text-align: center;
+  padding: 40px 16px;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column by default */
+  gap: 24px;
+}
+
+/* Tablet (≥ 768px) */
+@media (min-width: 768px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
+  }
+}
+
+/* Desktop (≥ 1024px) */
+@media (min-width: 1024px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(3, 1fr); /* Three columns on large screens */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.testimonial-card {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  text-align: left;
+}

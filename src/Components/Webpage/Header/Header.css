@@ -1,0 +1,508 @@
+:root {
+    --primary: #5865f2;
+    --background: #404eed;
+    --text: #fff;
+    --secondary-bg: #f6f6f6;
+    --dark-text: #23272a;
+    --success: #3ba55c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "gg sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+    line-height: 1.625;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: none;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.button {
+    padding: 8px 16px;
+    border-radius: 40px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+}
+
+.button-white {
+    background: var(--text);
+    color: var(--dark-text);
+}
+
+.button-white:hover {
+    color: var(--primary);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button-dark {
+    background: var(--dark-text);
+    color: var(--text);
+}
+
+.button-dark:hover {
+    background: #36393f;
+}
+
+.button-success {
+    background: var(--success);
+    color: var(--text);
+}
+
+.button-success:hover {
+    background: #2d8b48;
+}
+
+/* Hero Section */
+.hero {
+    background: var(--background);
+    padding: 100px 16px 60px;
+    text-align: center;
+    color: var(--text);
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+}
+
+.hero h1 {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fade-in-up 1s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.hero p {
+    font-size: 16px;
+    margin-bottom: 24px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    animation: fade-in-up 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+/* Call-to-action buttons */
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    opacity: 0;
+    animation: fade-in-up 1s ease-out forwards;
+    animation-delay: 0.7s;
+    width: 100%;
+}
+
+/* Floating effect on CTA cards */
+.cta-group {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    animation: float 3s ease-in-out infinite;
+    width: 100%;
+}
+
+.cta-group:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.cta-group:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.cta-group h3 {
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.cta-group p {
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+/* Animated Stars */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background: radial-gradient(2px 2px at 5% 10%, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 10% 30%, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 15% 50%, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 20% 80%, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 25% 40%, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 30% 20%, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 35% 60%, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 40% 10%, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 45% 90%, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 50% 70%, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 55% 30%, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 60% 50%, #ffffff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 65% 20%, #ffffff, rgba(0, 0, 0, 0));
+    background-repeat: repeat;
+    animation: stars-move 10s linear infinite, twinkling 5s infinite alternate;
+}
+
+.floating-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(100px);
+    z-index: 999;
+    font-size: 24px;
+}
+
+.floating-button.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.floating-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Tooltip */
+.floating-button::before {
+    content: "Need Help?";
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.floating-button::after {
+    content: "";
+    position: absolute;
+    top: -12px;
+    right: 24px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #333;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.floating-button:hover::before,
+.floating-button:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .floating-button {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@keyframes stars-move {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100px);
+    }
+}
+
+@keyframes twinkling {
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+    .nav {
+        padding: 14px 30px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
+
+    .nav-buttons {
+        gap: 12px;
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+
+    .hero {
+        padding: 110px 30px 70px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 18px;
+        max-width: 600px;
+    }
+
+    .cta-buttons {
+        flex-direction: row;
+        gap: 20px;
+        margin-top: 35px;
+    }
+
+    .cta-group {
+        padding: 24px;
+        max-width: 350px;
+    }
+
+    .cta-group h3 {
+        font-size: 22px;
+    }
+
+    .section {
+        padding: 70px 30px;
+    }
+
+    .section-title h2 {
+        font-size: 34px;
+    }
+
+    .features-grid,
+    .pricing-grid,
+    .testimonial-grid,
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .step-card {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .newsletter-form {
+        flex-direction: row;
+        max-width: 500px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    .nav {
+        padding: 16px 40px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .nav-links {
+        gap: 40px;
+    }
+
+    .button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+
+    .hero {
+        padding: 120px 40px 80px;
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 56px;
+        margin-bottom: 24px;
+    }
+
+    .hero p {
+        font-size: 20px;
+        max-width: 720px;
+    }
+
+    .cta-buttons {
+        gap: 24px;
+        margin-top: 40px;
+    }
+
+    .cta-group {
+        max-width: 400px;
+    }
+
+    .cta-group h3 {
+        font-size: 24px;
+    }
+
+    .section {
+        padding: 80px 40px;
+        min-width: 1260px;
+    }
+
+    .section-title h2 {
+        font-size: 40px;
+    }
+
+    .features-grid,
+    .pricing-grid,
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .price {
+        font-size: 48px;
+    }
+
+    .newsletter-form {
+        max-width: 500px;
+    }
+
+    .floating-button {
+        bottom: 40px;
+        right: 40px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+    }
+}
+
+/* Large desktop styles */
+@media (min-width: 1440px) {
+    .hero h1 {
+        font-size: 64px;
+    }
+
+    .hero p {
+        font-size: 22px;
+        max-width: 800px;
+    }
+
+    .section {
+        min-width: 1440px;
+    }
+    .hero {
+        width: 100%;
+    }
+}
