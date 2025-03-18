@@ -26,11 +26,11 @@ const FAQ = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-    return (
-        <section id="faq-section" className="faq-section">
-            <div className="section-title">
-                <h2>Frequently Asked Questions</h2>
-                <p>Got questions?</p>
+  return (
+    <section id="faq-section" className="faq-section">
+      <div className="section-title">
+        <h2 className="tnlu">Frequently Asked Questions</h2>
+        <p>Got questions?</p>
       </div>
       <div className="faq-container">
         {faqs.map((faq, index) => (

@@ -1,134 +1,224 @@
 .section {
-    padding: 80px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #f9fafb;
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f9fafb; /* Light mode background */
 }
 
 .section-title {
-    text-align: center;
-    margin-bottom: 48px;
+  text-align: center;
+  margin-bottom: 48px;
 }
 
 .section-title h2 {
-    font-size: 48px;
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 16px;
+  font-size: 48px;
+  font-weight: 700;
+  color: #000; /* Light mode text color */
+  margin-bottom: 16px;
 }
 
 .section-title p {
-    font-size: 18px;
-    color: #666;
+  font-size: 18px;
+  color: #666; /* Light mode text color */
 }
 
 .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-    margin-bottom: 64px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-bottom: 64px;
 }
 
 .feature-card {
-    background: white;
-    padding: 32px;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white; /* Light mode background */
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .feature-icon {
-    font-size: 36px;
-    margin-bottom: 20px;
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
 .feature-card h3 {
-    font-size: 24px;
-    font-weight: 600;
-    color: #111827;
-    margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827; /* Light mode text color */
+  margin-bottom: 12px;
 }
 
 .feature-card p {
-    font-size: 16px;
-    color: #6b7280;
-    line-height: 1.6;
+  font-size: 16px;
+  color: #6b7280; /* Light mode text color */
+  line-height: 1.6;
 }
 
 .features-cta {
-    text-align: center;
-    padding: 48px;
-    background: linear-gradient(135deg, #4f46e5, #6366f1);
-    border-radius: 16px;
-    color: white;
-    margin-top: 64px;
+  text-align: center;
+  padding: 48px;
+  background: linear-gradient(
+    135deg,
+    #4f46e5,
+    #6366f1
+  ); /* Light mode background */
+  border-radius: 16px;
+  color: white;
+  margin: 64px auto; /* Center the CTA horizontally */
+  width: 50%; /* Set a width for the CTA */
+  max-width: 600px; /* Optional: limit the maximum width */
 }
 
 .features-cta h3 {
-    font-size: 32px;
-    font-weight: 600;
-    margin-bottom: 24px;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 24px;
 }
 
 .cta-button {
-    background: white;
-    color: #4f46e5;
-    border: none;
-    padding: 16px 32px;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: white; /* Light mode button background */
+  color: #4f46e5; /* Light mode button text color */
+  border: none;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Dark mode specific styles */
+[data-theme="dark"] .body {
+  background-color: #000000; /* Dark background for the section */
+  margin: 0;
+}
+
+[data-theme="dark"] .section {
+  padding: 80px 20px;
+  max-width: 100%; /* Change max-width to 100% to cover full width */
+  margin: 0; /* Remove margin to eliminate borders */
+  background-color: #000; /* Dark mode section background */
+}
+
+[data-theme="dark"] .section-title h2 {
+  color: #ffffff; /* White text for the title in dark mode */
+}
+
+[data-theme="dark"] .section-title p {
+  color: #cccccc; /* Light grey text for the paragraph in dark mode */
+}
+
+[data-theme="dark"] .feature-card {
+  background: #2f3136; /* Dark background for feature cards */
+  color: #ffffff; /* White text for feature cards */
+}
+
+[data-theme="dark"] .feature-card h3 {
+  color: #ffffff; /* White text for feature card headings */
+}
+
+[data-theme="dark"] .feature-card p {
+  color: #b3b3b3; /* Light grey text for feature card paragraphs */
+}
+
+[data-theme="dark"] .features-cta {
+  background: linear-gradient(
+    135deg,
+    #070707,
+    #6366f1
+  ); /* Keep the same gradient for CTA */
+
+  width: 50%;
+  align-items: center;
+}
+
+[data-theme="dark"] .cta-button {
+  background: #151518; /* Dark mode button background */
+  color: white; /* White text for buttons in dark mode */
+}
+
+[data-theme="dark"] .cta-button:hover {
+  background: rgba(255, 255, 255, 0.2); /* Faded effect on hover */
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
-    .section-title h2 {
-        font-size: 36px;
-    }
+  .section-title h2 {
+    font-size: 36px;
+  }
 
-    .section-title p {
-        font-size: 16px;
-    }
+  .section-title p {
+    font-size: 16px;
+  }
 
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 
-    .feature-card {
-        padding: 24px;
-    }
+  .feature-card {
+    padding: 24px;
+  }
 
-    .feature-icon {
-        font-size: 32px;
-    }
+  .feature-icon {
+    font-size: 32px;
+  }
 
-    .feature-card h3 {
-        font-size: 20px;
-    }
+  .feature-card h3 {
+    font-size: 20px;
+  }
 
-    .features-cta {
-        padding: 32px;
-        margin-top: 48px;
-    }
+  .features-cta {
+    padding: 32px;
+    margin-top: 48px;
+  }
 
-    .features-cta h3 {
-        font-size: 24px;
-    }
+  .features-cta h3 {
+    font-size: 24px;
+  }
 
-    .cta-button {
-        padding: 12px 24px;
-        font-size: 16px;
-    }
+  .cta-button {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+}
+
+/* Dark mode specific styles for h1 */
+[data-theme="dark"] .wyo {
+  font-size: 45px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+
+  opacity: 1; /* Set opacity to 1 to make it visible */
+  animation: gradientAnimation 10s ease infinite; /* Slower gradient animation */
+
+  background: linear-gradient(270deg, #ff6f91, #a77bff, #404eed, #fe95f6);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Keep this for gradient effect */
+}
+
+/* Keyframes for gradient animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

@@ -1,0 +1,337 @@
+[data-theme="dark"] html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  width: 100%;
+  height: 100%;
+}
+
+.onlyjobs-terms-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: var(--background-color);
+}
+
+.onlyjobs-terms-header {
+  padding: 3rem 2rem;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: white;
+  border-radius: 8px 8px 0 0;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+
+.onlyjobs-company-logo {
+  margin-right: 2rem;
+}
+
+.onlyjobs-terms-title {
+  flex: 1;
+}
+
+.onlyjobs-terms-title p {
+  margin: 0.5rem 0 0;
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+.onlyjobs-terms-content {
+  display: flex;
+  box-shadow: var(--shadow);
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+}
+
+.onlyjobs-terms-sidebar {
+  width: 280px;
+  background-color: var(--section-bg);
+  padding: 2rem;
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 3rem);
+  overflow-y: auto;
+  border-right: 1px solid var(--border-color);
+}
+
+.onlyjobs-terms-sidebar h3 {
+  font-size: 1.1rem;
+  margin-top: 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.onlyjobs-terms-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.onlyjobs-terms-sidebar li {
+  margin: 0.5rem 0;
+}
+
+.onlyjobs-terms-sidebar a {
+  color: #fe95f6;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.onlyjobs-terms-sidebar a:hover {
+  color: #404eed;
+}
+
+.onlyjobs-terms-main {
+  flex: 1;
+  padding: 2rem 3rem;
+  overflow-y: auto;
+}
+
+.onlyjobs-terms-welcome {
+  margin-bottom: 2.5rem;
+}
+
+.onlyjobs-terms-welcome h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  color: #fe95f6;
+}
+
+.onlyjobs-terms-welcome p {
+  margin-bottom: 1rem;
+}
+
+.onlyjobs-terms-welcome strong {
+  color: var(--secondary-color);
+}
+
+.onlyjobs-terms-section {
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.onlyjobs-terms-section h3 {
+  margin: 0;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.2rem;
+  background-color: var(--section-bg);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.onlyjobs-terms-section h3:hover {
+  background-color: var(--primary-light);
+}
+
+.onlyjobs-terms-section h3::after {
+  content: "+";
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.onlyjobs-terms-section.active h3::after {
+  content: "−";
+}
+
+.onlyjobs-section-content {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.onlyjobs-terms-section.active .onlyjobs-section-content {
+  padding: 1.5rem;
+  max-height: 1000px;
+}
+
+.onlyjobs-section-content h4 {
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.onlyjobs-section-content p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.onlyjobs-section-content ul {
+  padding-left: 1.5rem;
+}
+
+.onlyjobs-section-content li {
+  margin-bottom: 0.5rem;
+}
+
+.onlyjobs-terms-footer {
+  margin-top: 2rem;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.onlyjobs-terms-footer p {
+  margin: 0.5rem 0;
+}
+
+.onlyjobs-terms-footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+/* Add responsive design */
+@media (max-width: 900px) {
+  .onlyjobs-terms-content {
+    flex-direction: column;
+  }
+
+  .onlyjobs-terms-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .onlyjobs-terms-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .onlyjobs-company-logo {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .onlyjobs-terms-header {
+    padding: 2rem 1rem;
+  }
+
+  .onlyjobs-terms-main {
+    padding: 1.5rem;
+  }
+
+  .onlyjobs-company-logo h1 {
+    font-size: 2rem;
+  }
+
+  .onlyjobs-terms-title h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.ojn-tc {
+  font-size: 150px; /* Adjust font size as needed */
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+
+  text-align: center; /* Optional */
+
+  background: linear-gradient(270deg, #404eed, #41335d);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Ensures visibility */
+
+  animation: gradientAnimation 10s ease infinite;
+}
+
+/* Dark mode specific styles for h1 */
+[data-theme="dark"] .ojn-tc {
+  font-size: 150px; /* Adjust font size as needed */
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+
+  text-align: center; /* Optional */
+
+  background: linear-gradient(270deg, #404eed, #41335d);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Ensures visibility */
+
+  animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.fowy-tc {
+  padding-top: 90px;
+  font-size: 80px; /* Adjust font size as needed */
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+
+  text-align: center; /* Optional */
+
+  background: linear-gradient(270deg, #404eed, #41335d);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Ensures visibility */
+
+  animation: gradientAnimation 10s ease infinite;
+}
+
+/* Dark mode specific styles for h1 */
+[data-theme="dark"] .fowy-tc {
+  font-size: 80px; /* Adjust font size as needed */
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+
+  text-align: center; /* Optional */
+
+  background: linear-gradient(270deg, #404eed, #41335d);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Ensures visibility */
+
+  animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

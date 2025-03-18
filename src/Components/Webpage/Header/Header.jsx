@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <section className="hero">
       <div className="stars"></div>
-      <h1>
+      <h1 className="fohis">
         The Future of Hiring
         <br />
         is Here

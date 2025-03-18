@@ -1,0 +1,973 @@
+/* App.css */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s ease;
+  --border-radius-sm: 0.375rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+  background-color: black;
+  color: white;
+  line-height: 1.5;
+}
+
+.onlyjobs-app button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.onlyjobs-app ul {
+  list-style: none;
+}
+
+/* Utilities */
+.onlyjobs-primary-button {
+  background-color: #ed4063;
+  color: #f1f1f1;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  transition: var(--transition);
+  font-size: 0.875rem;
+}
+
+.onlyjobs-primary-button:hover {
+  background-color: #f96784;
+  transform: translateY(-1px);
+}
+
+.onlyjobs-secondary-button {
+  background-color: #404eed;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  transition: var(--transition);
+  font-size: 0.875rem;
+}
+
+.onlyjobs-secondary-button:hover {
+  background-color: #5b69fd;
+  color: var(--primary-color);
+  border-color: var(--primary-dark);
+}
+
+.onlyjobs-text-button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: var(--transition);
+}
+
+.onlyjobs-text-button:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.onlyjobs-icon-button {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  transition: var(--transition);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.onlyjobs-icon-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--text-color);
+}
+
+/* App Layout */
+.onlyjobs-app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.onlyjobs-header {
+  background-color: var(--card-color);
+  box-shadow: var(--shadow-sm);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.onlyjobs-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.onlyjobs-menu-button {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 20px;
+  background: none;
+  border: none;
+}
+
+.onlyjobs-menu-button span {
+  height: 2px;
+  width: 100%;
+  background-color: var(--text-color);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.onlyjobs-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.onlyjobs-logo h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.onlyjobs-main-nav ul {
+  display: flex;
+  gap: 2rem;
+}
+
+.onlyjobs-main-nav li {
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: var(--transition);
+}
+
+.onlyjobs-main-nav li:hover {
+  color: var(--primary-color);
+}
+
+.onlyjobs-main-nav li.active {
+  color: var(--primary-color);
+}
+
+.onlyjobs-main-nav li.active::after {
+  content: "";
+  position: absolute;
+  bottom: -0.25rem;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  border-radius: 1px;
+}
+
+.onlyjobs-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.onlyjobs-user-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transition);
+}
+
+.onlyjobs-user-avatar:hover {
+  border-color: var(--primary-light);
+}
+
+.onlyjobs-user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Main Content */
+.onlyjobs-main-content {
+  display: flex;
+  flex: 1;
+}
+
+/* Sidebar */
+.onlyjobs-sidebar {
+  width: 250px;
+  background-color: var(--card-color);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  overflow-y: auto;
+  height: calc(100vh - 58px);
+  position: sticky;
+  top: 58px;
+}
+
+.onlyjobs-sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.onlyjobs-sidebar-header h2 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.onlyjobs-sidebar-menu {
+  padding: 1rem 0;
+  flex: 1;
+}
+
+.onlyjobs-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.onlyjobs-sidebar-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.onlyjobs-sidebar-item img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--border-radius-sm);
+  object-fit: cover;
+}
+
+.onlyjobs-sidebar-item-info h3 {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.onlyjobs-sidebar-item-info p {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+.onlyjobs-sidebar-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Page Content */
+.onlyjobs-page-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Hero Section */
+.onlyjobs-hero {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.onlyjobs-hero.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.onlyjobs-hero-content {
+  flex: 1;
+}
+
+.onlyjobs-hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.onlyjobs-hero-content p {
+  font-size: 1.125rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.onlyjobs-hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.onlyjobs-hero-image {
+  flex: 1;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transform: rotate(2deg);
+  transition: var(--transition);
+}
+
+.onlyjobs-hero-image:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.onlyjobs-hero-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Featured Sections */
+.onlyjobs-featured-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Sections */
+.onlyjobs-section {
+  background-color: var(--card-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 1.5rem;
+  transition: var(--transition);
+}
+
+.onlyjobs-section:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.onlyjobs-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.onlyjobs-section-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Job Postings */
+.onlyjobs-job-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.onlyjobs-job-card {
+  padding: 1rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.onlyjobs-job-card:hover {
+  border-color: var(--primary-light);
+  background-color: rgba(79, 70, 229, 0.03);
+}
+
+.onlyjobs-job-card-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.onlyjobs-job-card-header img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--border-radius-sm);
+  object-fit: cover;
+}
+
+.onlyjobs-job-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.onlyjobs-job-info p {
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+.onlyjobs-job-card-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+}
+
+.onlyjobs-location {
+  color: var(--text-light);
+}
+
+.onlyjobs-posted {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* Events */
+.onlyjobs-event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.onlyjobs-event-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.onlyjobs-event-card:hover {
+  border-color: var(--primary-light);
+  background-color: rgba(79, 70, 229, 0.03);
+}
+
+.onlyjobs-event-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--primary-color);
+  color: white;
+  min-width: 3rem;
+  text-align: center;
+}
+
+.onlyjobs-event-date .day {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.onlyjobs-event-date .month {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.onlyjobs-event-info {
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.onlyjobs-event-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.onlyjobs-event-info p {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+/* Resources */
+.onlyjobs-resources {
+  margin-bottom: 3rem;
+}
+
+.onlyjobs-resources-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.onlyjobs-resource-card {
+  padding: 1.5rem;
+  background-color: var(--card-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.onlyjobs-resource-card:hover {
+  border-color: var(--primary-light);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.onlyjobs-resource-card img {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.onlyjobs-resource-card:hover img {
+  transform: scale(1.1);
+}
+
+.onlyjobs-resource-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.onlyjobs-resource-card p {
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+/* Footer */
+.onlyjobs-footer {
+  background-color: var(--card-color);
+  border-top: 1px solid var(--border-color);
+  padding: 3rem 2rem 1.5rem;
+  margin-top: auto;
+}
+
+.onlyjobs-footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.onlyjobs-footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.onlyjobs-footer-logo h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.onlyjobs-footer-links {
+  display: flex;
+  gap: 4rem;
+}
+
+.onlyjobs-footer-column h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.onlyjobs-footer-column ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.onlyjobs-footer-column li {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.onlyjobs-footer-column li:hover {
+  color: var(--primary-color);
+}
+
+.onlyjobs-footer-bottom {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+/* Notification */
+.onlyjobs-notification {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: var(--card-color);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 1rem;
+  transition: top 0.5s ease;
+  width: 90%;
+  max-width: 400px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.onlyjobs-notification.show {
+  top: 20px;
+  animation: onlyjobs-notification-bounce 0.5s ease;
+}
+
+@keyframes onlyjobs-notification-bounce {
+  0% {
+    top: -100px;
+  }
+  50% {
+    top: 30px;
+  }
+  75% {
+    top: 15px;
+  }
+  100% {
+    top: 20px;
+  }
+}
+
+.onlyjobs-notification-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.onlyjobs-notification-content p {
+  flex: 1;
+  font-size: 0.875rem;
+}
+
+.onlyjobs-notification-content button {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.onlyjobs-notification-content button:hover {
+  color: var(--text-color);
+}
+
+/* Animations */
+@keyframes onlyjobs-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes onlyjobs-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.onlyjobs-job-card,
+.onlyjobs-event-card,
+.onlyjobs-resource-card {
+  animation: onlyjobs-fadeIn 0.5s ease forwards;
+  animation-delay: calc(var(--animation-order, 0) * 0.1s);
+}
+
+.onlyjobs-primary-button:active {
+  animation: onlyjobs-pulse 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .onlyjobs-resources-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .onlyjobs-featured-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .onlyjobs-hero {
+    flex-direction: column;
+  }
+
+  .onlyjobs-hero-content,
+  .onlyjobs-hero-image {
+    width: 100%;
+  }
+
+  .onlyjobs-footer-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .onlyjobs-footer-links {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .onlyjobs-menu-button {
+    display: flex;
+  }
+
+  .onlyjobs-sidebar {
+    position: fixed;
+    left: -250px;
+    z-index: 99;
+    height: calc(100vh - 58px);
+  }
+
+  .onlyjobs-sidebar.open {
+    left: 0;
+  }
+
+  .onlyjobs-main-nav {
+    display: none;
+  }
+
+  .onlyjobs-resources-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .onlyjobs-page-content {
+    padding: 1rem;
+  }
+
+  .onlyjobs-footer-links {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .onlyjobs-hero-content h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Loading Animation */
+.onlyjobs-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.onlyjobs-loading div {
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  animation: onlyjobs-bounce 1.5s infinite ease-in-out both;
+}
+
+.onlyjobs-loading div:nth-child(1) {
+  animation-delay: -0.3s;
+}
+
+.onlyjobs-loading div:nth-child(2) {
+  animation-delay: -0.15s;
+}
+
+@keyframes onlyjobs-bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* Page Transitions */
+.onlyjobs-page-transition {
+  animation: onlyjobs-fadeIn 0.5s ease forwards;
+}
+
+/* Hover Effects */
+.onlyjobs-hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.onlyjobs-hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* Focus States */
+.onlyjobs-primary-button:focus,
+.onlyjobs-secondary-button:focus,
+.onlyjobs-text-button:focus,
+.onlyjobs-icon-button:focus {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 2px;
+}
+
+/* Enhanced Button Animations */
+.onlyjobs-primary-button,
+.onlyjobs-secondary-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.onlyjobs-primary-button::after,
+.onlyjobs-secondary-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.onlyjobs-primary-button:focus:not(:active)::after,
+.onlyjobs-secondary-button:focus:not(:active)::after {
+  animation: onlyjobs-ripple 1s ease-out;
+}
+
+@keyframes onlyjobs-ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+/* Custom Scrollbar */
+.onlyjobs-app ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.onlyjobs-app ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.onlyjobs-app ::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 10px;
+}
+
+.onlyjobs-app ::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.ojn-b {
+  font-size: 150px; /* Adjust font size as needed */
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+
+  text-align: center; /* Optional */
+
+  background: linear-gradient(270deg, #404eed, #41335d);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Ensures visibility */
+
+  animation: gradientAnimation 10s ease infinite;
+}
+
+[data-theme="dark"] .ojn-b {
+  font-size: 150px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+
+  text-align: center; /* Optional */
+
+  background: linear-gradient(270deg, #404eed, #41335d);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Ensures visibility */
+
+  animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

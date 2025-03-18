@@ -1,26 +1,226 @@
+/* src/Components/Webpage/Footer/Footer.css */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap");
+
 footer {
   background: var(--dark-text);
   color: var(--text);
-  padding: 50px 20px 30px;
-  text-align: center;
+  padding: 40px 24px;
+  font-size: 14px;
 }
 
-.footer-grid {
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 1260px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Left side with logo, language selector and social links */
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.footer-logo img {
+  height: 36px;
+  width: auto;
+}
+
+/* src/Components/Webpage/Footer/Footer.css - Language Selector Styling */
+.language-selector {
+  position: relative;
+  width: 180px;
+}
+
+.language-selector h5 {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #5865f2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Custom select styling */
+.language-dropdown {
+  appearance: none;
+  background-color: #2c2f33;
+  color: white;
+  border: 1px solid #42464d;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 14px;
+  width: 100%;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 30px;
+}
+
+/* Focus state */
+.language-dropdown:focus {
+  outline: none;
+  border-color: #5865f2;
+  box-shadow: 0 0 0 2px rgba(88, 101, 242, 0.3);
+}
+
+/* Hover state */
+.language-dropdown:hover {
+  border-color: #5865f2;
+  background-color: #36393f;
+}
+
+/* For a more modern approach, we'll use a custom dropdown with JS */
+/* This is the CSS for the custom dropdown that will replace the native select */
+.custom-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.selected-option {
+  background-color: #2c2f33;
+  color: white;
+  border: 1px solid #42464d;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.selected-option:hover {
+  border-color: #5865f2;
+  background-color: #36393f;
+}
+
+.selected-option:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+}
+
+.options-container {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 100%;
+  background-color: #36393f;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  z-index: 100;
+}
+
+.options-container.active {
+  max-height: 200px;
+  opacity: 1;
+  overflow-y: auto;
+}
+
+.option {
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #42464d;
+}
+
+.option:last-child {
+  border-bottom: none;
+}
+
+.option:hover {
+  background-color: #5865f2;
+  color: white;
+}
+
+.option .flag {
+  margin-right: 8px;
+  width: 20px;
+  height: 15px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+/* Animation for the dropdown arrow */
+.custom-dropdown.active .selected-option:after {
+  transform: rotate(180deg);
+}
+
+/* Scrollbar styling for the options container */
+.options-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.options-container::-webkit-scrollbar-track {
+  background: #2c2f33;
+  border-radius: 4px;
+}
+
+.options-container::-webkit-scrollbar-thumb {
+  background: #5865f2;
+  border-radius: 4px;
+}
+
+.options-container::-webkit-scrollbar-thumb:hover {
+  background: #404eed;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.social-icon {
+  color: white;
+  font-size: 20px;
+  transition: color 0.2s;
+}
+
+.social-icon:hover {
+  color: #5865f2;
+}
+
+/* Right side with links */
+.footer-right {
+  width: 100%;
+}
+
+.footer-links-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px;
-  max-width: 100%;
-  margin: 0 auto;
+  gap: 40px;
 }
 
 .footer-column h4 {
-  margin-bottom: 15px;
+  color: #5865f2;
+  margin-bottom: 16px;
   font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .footer-column ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .footer-column ul li {
@@ -28,43 +228,137 @@ footer {
 }
 
 .footer-column ul li a {
-  color: #999;
+  color: white;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.2s;
 }
 
 .footer-column ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Footer bottom with jobs link */
+.footer-bottom {
+  margin-top: 32px;
+  text-align: center; /* Center the text */
+}
+
+.divider {
+  height: 1px;
+  background-color: #5865f2;
+  margin-bottom: 32px;
+}
+
+.footer-bottom-content {
+  display: flex; /* Use flexbox to align items */
+  justify-content: center; /* Center the content */
+  align-items: center; /* Center vertically */
+  width: 100%; /* Full width */
+}
+
+.logo-small img {
+  height: 30px;
+  width: auto;
+}
+
+.jobs-link {
   color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.jobs-link:hover {
+  color: #5865f2;
 }
 
 /* Tablet View */
-@media (min-width: 600px) {
-  .footer-grid {
+@media (min-width: 768px) {
+  .footer-links-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-  }
-
-  .footer-column h4 {
-    font-size: 18px;
   }
 }
 
 /* Desktop View */
 @media (min-width: 1024px) {
   footer {
-    padding: 60px 40px 40px;
+    padding: 80px 40px 40px;
   }
 
-  .footer-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    max-width: 1260px;
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
   }
 
-  .footer-column h4 {
-    font-size: 20px;
+  .footer-left {
+    width: 25%;
+    margin-bottom: 0;
   }
 
-  .footer-column ul li {
-    margin: 10px 0;
+  .footer-right {
+    width: 70%;
+  }
+
+  .footer-links-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+}
+
+/* Dark mode styles */
+[data-theme="dark"] footer {
+  background: #00111e;
+}
+
+[data-theme="dark"] .language-dropdown {
+  background-color: #2c2f33;
+}
+
+[data-theme="dark"] .footer-column h4 {
+  color: #5865f2;
+}
+
+.onlyJobs {
+  font-size: 280px; /* Adjust font size as needed */
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+
+  text-align: center; /* Optional */
+
+  background: linear-gradient(270deg, #404eed, #41335d);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Ensures visibility */
+
+  animation: gradientAnimation 10s ease infinite;
+}
+
+/* Dark mode specific styles for h1 */
+[data-theme="dark"] .onlyJobs {
+  font-size: 280px; /* Adjust font size as needed */
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+
+  text-align: center; /* Optional */
+
+  background: linear-gradient(270deg, #404eed, #41335d);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Ensures visibility */
+
+  animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

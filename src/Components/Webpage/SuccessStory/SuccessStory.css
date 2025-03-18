@@ -1,8 +1,14 @@
 /* Testimonials Section */
 .testimonials {
-  background: var(--secondary-bg);
+  background: white;
   text-align: center;
   padding: 40px 16px;
+  margin-top: 0;
+}
+
+/* Dark mode styles */
+[data-theme="dark"] .testimonials {
+  background: #000000; /* Dark background for testimonials section */
 }
 
 .testimonial-grid {
@@ -28,8 +34,55 @@
 }
 
 .testimonial-card {
-  background: white;
+  background: #404eed; /* Light mode background for testimonial cards */
+
   padding: 24px;
   border-radius: 16px;
   text-align: left;
+}
+
+/* Dark mode styles for testimonial cards */
+
+[data-theme="dark"] .testimonials {
+  background: #000000; /* Dark background for testimonials section */
+}
+
+[data-theme="dark"] .testimonial-card {
+  background: #2f3136; /* Dark background for testimonial cards */
+  color: var(--text); /* White text for readability */
+}
+
+/* Dark mode text color for testimonial card content */
+[data-theme="dark"] .testimonial-card h3,
+[data-theme="dark"] .testimonial-card p {
+  color: var(--text); /* Ensure text is white in dark mode */
+}
+
+/* Dark mode specific styles for h1 */
+[data-theme="dark"] .tnlu {
+  font-size: 45px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+
+  opacity: 1; /* Set opacity to 1 to make it visible */
+  animation: gradientAnimation 10s ease infinite; /* Slower gradient animation */
+
+  background: linear-gradient(270deg, #404eed, #fe95f6, #ff6f91, #a77bff);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Keep this for gradient effect */
+}
+
+/* Keyframes for gradient animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

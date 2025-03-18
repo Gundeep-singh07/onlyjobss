@@ -1,4 +1,8 @@
 /* Mobile First */
+
+.pricing {
+  background: #404eed;
+}
 .pricing-grid {
   display: grid;
   grid-template-columns: 1fr; /* Single column for mobile */
@@ -8,7 +12,7 @@
 }
 
 .price-card {
-  background: white;
+  background: var(--body-bg); /* Use body background for light mode */
   padding: 24px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -18,19 +22,20 @@
 .price-card h3 {
   font-size: 20px;
   margin-bottom: 12px;
-  color: var(--dark-text);
+  color: var(--dark-text); /* Use dark text color for light mode */
 }
 
 .price {
   font-size: 36px;
   font-weight: 700;
   margin: 20px 0;
-  color: var(--dark-text);
+  color: var(--dark-text); /* Use dark text color for light mode */
 }
 
 .price-features {
   margin: 20px 0;
   text-align: left;
+  color: #000000;
 }
 
 .price-features li {
@@ -45,6 +50,32 @@
   content: "✓";
   color: var(--success);
   font-weight: bold;
+}
+
+/* Dark mode styles */
+
+[data-theme="dark"] .pricing {
+  background: #000000; /* Dark background for price card */
+}
+
+[data-theme="dark"] .price-card {
+  background: #2f3136; /* Dark background for price card */
+}
+
+[data-theme="dark"] .pricing-grid {
+  background: #000000; /* Dark background for price card */
+}
+
+[data-theme="dark"] .price-card h3 {
+  color: var(--text); /* White text for headings in dark mode */
+}
+
+[data-theme="dark"] .price {
+  color: var(--text); /* White text for price in dark mode */
+}
+
+[data-theme="dark"] .price-features li {
+  color: white; /* Set list item text color to white in dark mode */
 }
 
 /* Tablet (≥ 768px) */
@@ -102,13 +133,45 @@
   .testimonial-grid {
     grid-template-columns: repeat(3, 1fr); /* Three columns on large screens */
     max-width: 1200px;
-    margin: 0 auto;
   }
 }
 
 .testimonial-card {
-  background: white;
-  padding: 24px;
+  background: rgb(0, 0, 0);
+
   border-radius: 16px;
   text-align: left;
+}
+
+/* Dark mode specific styles for h1 */
+[data-theme="dark"] .tnlu {
+  font-size: 45px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+
+  opacity: 1; /* Set opacity to 1 to make it visible */
+  animation: gradientAnimation 10s ease infinite; /* Slower gradient animation */
+
+  background: linear-gradient(270deg, #404eed, #fe95f6, #ff6f91, #a77bff);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Keep this for gradient effect */
+}
+
+/* Keyframes for gradient animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.p-p {
+  color: #000000;
 }

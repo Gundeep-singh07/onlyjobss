@@ -2,8 +2,12 @@
 .faq-section {
   text-align: center;
   padding: 60px 20px;
-  background: linear-gradient(135deg, #404eed, #5865f2);
-  color: white;
+  background: linear-gradient(
+    135deg,
+    #404eed,
+    #5865f2
+  ); /* Light mode background */
+  color: white; /* Light mode text color */
 }
 
 .section-title h2 {
@@ -12,7 +16,7 @@
 }
 
 .faq-section .section-title h2 {
-  color: white;
+  color: white; /* Light mode heading color */
 }
 
 .section-title p {
@@ -21,7 +25,7 @@
 }
 
 .faq-section .section-title p {
-  color: white;
+  color: white; /* Light mode paragraph color */
 }
 
 .faq-container {
@@ -35,7 +39,7 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.15); /* Light mode background */
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -47,19 +51,19 @@
 
 .faq-question {
   padding: 18px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.8); /* Light mode question background */
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 600;
-  color: #333;
+  color: #333; /* Light mode text color */
   font-size: 1rem;
   transition: background 0.3s ease;
 }
 
 .faq-question:hover {
-  background: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 1); /* Light mode hover background */
 }
 
 .faq-question::after {
@@ -77,13 +81,50 @@
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.95);
-  color: #333;
+  background: rgba(255, 255, 255, 0.95); /* Light mode answer background */
+  color: #333; /* Light mode text color */
 }
 
 .faq-item.active .faq-answer {
   padding: 20px;
   max-height: 250px;
+}
+/* Dark mode styles */
+[data-theme="dark"] .faq-section {
+  background: #000000; /* Pure black background */
+  color: var(--text); /* Use white text for dark mode */
+}
+
+[data-theme="dark"] .faq-section .section-title h2 {
+  color: var(--text); /* White heading color for dark mode */
+}
+
+[data-theme="dark"] .faq-section .section-title p {
+  color: #aaa; /* Lighter paragraph color for dark mode */
+}
+
+[data-theme="dark"] .faq-item {
+  background: rgba(255, 255, 255, 0.1); /* Darker background for FAQ items */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Lighter border for dark mode */
+}
+
+[data-theme="dark"] .faq-question {
+  background: rgba(255, 255, 255, 0.2); /* Darker background for question */
+  color: var(--text); /* White text for dark mode */
+}
+
+[data-theme="dark"] .faq-question:hover {
+  background: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* Lighter hover background for dark mode */
+}
+
+[data-theme="dark"] .faq-answer {
+  background: rgba(255, 255, 255, 0.2); /* Darker background for answer */
+  color: var(--text); /* White text for dark mode */
 }
 
 /* Tablet (iPad) Styles */
@@ -110,6 +151,21 @@
   }
 }
 
+/* Dark mode tablet styles */
+@media (min-width: 600px) {
+  [data-theme="dark"] .faq-item {
+    background: rgba(255, 255, 255, 0.1); /* Darker background for FAQ items */
+  }
+
+  [data-theme="dark"] .faq-question {
+    background: rgba(255, 255, 255, 0.2); /* Darker background for question */
+  }
+
+  [data-theme="dark"] .faq-answer {
+    background: rgba(255, 255, 255, 0.2); /* Darker background for answer */
+  }
+}
+
 /* Desktop Styles */
 @media (min-width: 1024px) {
   .faq-section {
@@ -130,5 +186,49 @@
 
   .faq-answer {
     font-size: 1.1rem;
+  }
+}
+
+/* Dark mode desktop styles */
+@media (min-width: 1024px) {
+  [data-theme="dark"] .faq-item {
+    background: rgba(255, 255, 255, 0.1); /* Darker background for FAQ items */
+  }
+
+  [data-theme="dark"] .faq-question {
+    background: rgba(255, 255, 255, 0.2); /* Darker background for question */
+  }
+
+  [data-theme="dark"] .faq-answer {
+    background: rgba(255, 255, 255, 0.2); /* Darker background for answer */
+  }
+}
+
+/* Dark mode specific styles for h1 */
+[data-theme="dark"] .tnlu {
+  font-size: 45px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+
+  opacity: 1; /* Set opacity to 1 to make it visible */
+  animation: gradientAnimation 10s ease infinite; /* Slower gradient animation */
+
+  background: linear-gradient(270deg, #404eed, #fe95f6, #ff6f91, #a77bff);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Keep this for gradient effect */
+}
+
+/* Keyframes for gradient animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

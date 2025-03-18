@@ -19,6 +19,10 @@
   margin: 0 auto;
 }
 
+.ojn {
+  color: white;
+}
+
 .stat-card {
   padding: 20px;
   background: rgba(255, 255, 255, 0.15);
@@ -41,6 +45,21 @@
 .stat-card p {
   font-size: 1rem;
   opacity: 0.9;
+}
+
+/* Dark mode styles */
+[data-theme="dark"] .stats-section {
+  background: black;
+  color: var(--text); /* Use white text for dark mode */
+}
+
+[data-theme="dark"] .stat-card {
+  color: var(--text); /* Ensure text is white for readability */
+  background-color: #2f3136;
+}
+
+[data-theme="dark"] .stat-card p {
+  opacity: 0.8; /* Slightly less opacity for better contrast */
 }
 
 /* Tablet (iPad) Styles */
@@ -73,6 +92,14 @@
   }
 }
 
+/* Dark mode tablet styles */
+@media (min-width: 600px) {
+  [data-theme="dark"] .stat-card {
+    padding: 24px;
+    border-radius: 16px;
+  }
+}
+
 /* Desktop Styles */
 @media (min-width: 1024px) {
   .stats-section {
@@ -99,5 +126,41 @@
 
   .stat-card p {
     font-size: 1.2rem;
+  }
+}
+
+/* Dark mode desktop styles */
+@media (min-width: 1024px) {
+  [data-theme="dark"] .stat-card {
+    padding: 28px;
+  }
+}
+
+/* Dark mode specific styles for h1 */
+[data-theme="dark"] .ojn {
+  font-size: 45px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+
+  opacity: 1; /* Set opacity to 1 to make it visible */
+  animation: gradientAnimation 10s ease infinite; /* Slower gradient animation */
+
+  background: linear-gradient(270deg, #404eed, #fe95f6, #ff6f91, #a77bff);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Keep this for gradient effect */
+}
+
+/* Keyframes for gradient animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

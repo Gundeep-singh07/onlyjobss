@@ -1,0 +1,378 @@
+/* Modern Branding Page CSS */
+.ojn-branding-container {
+  position: relative;
+  overflow: hidden;
+  padding: 60px 20px;
+  background: radial-gradient(circle at 50% 50%, #10101a 0%, #080810 100%);
+  color: white;
+  font-family: "Space Grotesk", sans-serif;
+  min-height: 100vh;
+}
+
+/* Glowing orbs */
+.ojn-nitro-glowing-orb {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(254, 149, 246, 0.2),
+    rgba(64, 78, 237, 0.1) 70%,
+    transparent
+  );
+  filter: blur(30px);
+  opacity: 0.7;
+  animation: ojn-pulse 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+.ojn-nitro-orb-1 {
+  top: 10%;
+  left: 20%;
+}
+
+.ojn-nitro-orb-2 {
+  bottom: 20%;
+  right: 10%;
+}
+
+@keyframes ojn-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+/* Hero Section */
+.ojn-branding-hero {
+  position: relative;
+  padding: 80px 20px;
+  text-align: center;
+  z-index: 2;
+  animation: ojn-fade-in-up 1s ease-out;
+}
+
+.ojn-brand-title {
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  background: linear-gradient(270deg, #404eed, #fe95f6);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: ojn-gradient-animation 10s ease infinite;
+}
+
+.ojn-brand-subtitle {
+  font-size: 1.3rem;
+  opacity: 0.85;
+  margin-top: 10px;
+}
+
+/* Section Titles */
+.ojn-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  background: linear-gradient(90deg, #404eed, #fe95f6);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: ojn-gradient-animation 10s ease infinite;
+}
+
+/* Logos Section */
+.ojn-branding-logos {
+  position: relative;
+  margin: 80px 0;
+  z-index: 2;
+}
+
+.ojn-branding-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.ojn-branding-logo-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ojn-branding-logo-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(64, 78, 237, 0.3);
+}
+
+.ojn-logo-image-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgb(5, 5, 5);
+}
+
+.ojn-logo-image {
+  max-width: 100%;
+  max-height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.ojn-logo-image-container:hover .ojn-logo-image {
+}
+
+.ojn-download-button {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #404eed, #fe95f6);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(64, 78, 237, 0.4);
+}
+
+.ojn-logo-image-container:hover .ojn-download-button {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ojn-logo-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* Color Palette Section */
+.ojn-branding-colors {
+  position: relative;
+  margin: 80px 0;
+  z-index: 2;
+}
+
+.ojn-branding-color-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.ojn-branding-color-card {
+  position: relative;
+  width: 280px;
+  height: 150px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.ojn-branding-color-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(64, 78, 237, 0.3);
+}
+
+.ojn-color-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.ojn-color-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.ojn-color-code {
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.ojn-copy-button {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.ojn-copy-button:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes ojn-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ojn-gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .ojn-brand-title {
+    font-size: 2.5rem;
+  }
+
+  .ojn-brand-subtitle {
+    font-size: 1rem;
+  }
+
+  .ojn-section-title {
+    font-size: 1.8rem;
+  }
+
+  .ojn-branding-logo-card {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .ojn-logo-image-container {
+    width: 160px;
+    height: 160px;
+  }
+
+  .ojn-branding-color-card {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .ojn-nitro-glowing-orb {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .ojn-brand-title {
+    font-size: 3rem;
+  }
+
+  .ojn-branding-logo-wrapper,
+  .ojn-branding-color-wrapper {
+    gap: 20px;
+  }
+
+  .ojn-branding-logo-card,
+  .ojn-branding-color-card {
+    width: 230px;
+  }
+
+  .ojn-logo-image-container {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .ojn-brand-title {
+    font-size: 3.5rem;
+  }
+
+  .ojn-branding-logo-wrapper,
+  .ojn-branding-color-wrapper {
+    gap: 25px;
+  }
+}
+
+.ojn-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(to right, #404eed, #fe95f6);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}

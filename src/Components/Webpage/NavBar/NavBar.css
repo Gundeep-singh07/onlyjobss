@@ -1,132 +1,239 @@
+/* Base variables from your original CSS */
 :root {
-    --primary: #5865f2;
-    --background: #404eed;
-    --text: #fff;
-    --secondary-bg: #f6f6f6;
-    --dark-text: #23272a;
-    --success: #3ba55c;
+  --primary: #5865f2;
+  --background: #404eed;
+  --text: #fff;
+  --secondary-bg: #f6f6f6;
+  --dark-text: #23272a;
+  --success: #3ba55c;
+  --cta-bg: rgba(255, 255, 255, 0.1);
+  --body-bg: #ffffff;
+  --body-text: #23272a;
+  --heading-color: #ffffff;
+  --paragraph-color: #ffffff;
+  --accent-color: #404eed;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "gg sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+/* Dark mode variables */
+[data-theme="dark"] {
+  --primary: #fe95f6;
+  --background: #000000;
+  --text: #ffffff;
+  --secondary-bg: #404eed;
+  --dark-text: #ffffff;
+  --success: #43b581;
+  --cta-bg: rgba(0, 0, 0, 0.3);
+  --body-bg: #000000;
+  --body-text: #ffffff;
+  --heading-color: #fe95f6;
+  --paragraph-color: #ffffff;
+  --accent-color: #404eed;
 }
 
-body {
-    line-height: 1.625;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 3.75rem;
-}
-
+/* Navigation styles - with transparent background */
 .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 16px 40px;
-    background: var(--background);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 30px;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  color: var(--text);
+  font-size: 14px;
+  width: 100%;
+  transition: all 0.3s ease;
 }
 
+/* Logo styling - sticky at top */
 .logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+  z-index: 101; /* Higher z-index to stay on top */
 }
 
 .logo img {
-    height: 45px;
-    width: auto;
-    display: block;
-    margin: auto 0;
+  height: 45px;
+  width: auto;
+  display: block;
+  margin: auto 0;
 }
 
+/* Nav links styling with animation for Discord-like behavior */
 .nav-links {
-    display: flex;
-    gap: 40px;
-    align-items: center;
+  display: none; /* Mobile-first: hidden by default */
+  gap: 20px;
+  align-items: center;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+  opacity: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  justify-content: center; /* Center the nav links horizontally */
+}
+
+/* Hidden state for nav links when scrolling down */
+.nav-links.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Make nav links appear only when at the top of the page */
+.nav:not(.scrolled) .nav-links {
+  /* Still hidden on mobile, will be shown on larger screens via media query */
+}
+
+.nav.scrolled .nav-links {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .nav-links a {
-    color: var(--text);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 10px;
+  transition: color 0.3s ease-in-out;
 }
 
+.nav-links a:hover {
+  color: #ff007f;
+}
+
+/* Nav buttons - sticky at top */
 .nav-buttons {
-    display: flex;
-    gap: 16px;
-    align-items: center;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  z-index: 101;
 }
 
 .button {
-    padding: 12px 24px;
-    border-radius: 40px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-decoration: none;
-    text-align: center;
+  padding: 12px 24px;
+  border-radius: 40px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  text-align: center;
 }
 
 .button-white {
-    background: var(--text);
-    color: var(--dark-text);
+  background: var(--text);
+  color: var(--dark-text);
 }
 
 .button-white:hover {
-    color: var(--primary);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  color: var(--primary);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .button-dark {
-    background: var(--dark-text);
-    color: var(--text);
+  background: var(--dark-text);
+  color: var(--text);
+  display: none; /* Hide Sign Up by default for mobile */
 }
 
 .button-dark:hover {
-    background: #36393f;
+  background: #36393f;
 }
 
+/* Theme toggle button styling */
+.theme-button {
+  background-color: transparent;
+  color: var(--text);
+  border: 1px solid var(--text);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  padding: 0;
+}
+
+.theme-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Media queries for responsiveness */
+/* Mobile (default styles above are for mobile) */
 @media (max-width: 768px) {
-    .nav {
-        padding: 16px 24px;
-    }
+  .nav {
+    padding: 14px 20px;
+  }
 
-    .logo img {
-        height: 35px; /* Slightly smaller on mobile */
-    }
+  .logo img {
+    height: 35px;
+  }
 
-    .nav-links {
-        display: none;
-    }
+  .nav-buttons {
+    gap: 8px;
+  }
 
-    .nav-buttons {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
+  .button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
 
-    .button {
-        padding: 18px 36px;
-        border-radius: 50px;
-        font-size: 20px;
-    }
+  .theme-button {
+    width: 36px;
+    height: 36px;
+  }
 }
 
-@media (max-width: 858px) {
-    .nav-links a {
-        display: none;
-    }
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .nav-links {
+    /* Still hidden on tablet */
+    display: none;
+  }
+
+  .button-dark {
+    display: block; /* Show Sign Up on tablet */
+  }
+
+  .nav-buttons {
+    gap: 12px;
+  }
+
+  .button {
+    padding: 10px 18px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .nav-links {
+    display: flex; /* Show nav links on desktop */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    justify-content: center;
+    pointer-events: auto;
+  }
+
+  .button-dark {
+    display: block; /* Show Sign Up on desktop */
+  }
+
+  /* Make nav links appear only when at the top of the page */
+  .nav:not(.scrolled) .nav-links {
+    display: flex;
+  }
 }

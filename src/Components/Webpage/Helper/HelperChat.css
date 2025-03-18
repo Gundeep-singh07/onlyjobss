@@ -4,7 +4,7 @@
   right: 20px;
   width: 350px;
   height: 500px;
-  background: white;
+  background: white; /* Light mode background */
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
   display: flex;
@@ -12,12 +12,11 @@
   overflow: hidden;
   z-index: 1000;
   animation: slideIn 0.3s ease-out;
-  /* Only visible on home page - handled by component logic */
 }
 
 .chat-header {
   padding: 16px;
-  background: #5865f2;
+  background: #5865f2; /* Light mode header background */
   color: white;
   display: flex;
   justify-content: space-between;
@@ -61,7 +60,7 @@
 .bot-avatar {
   width: 32px;
   height: 32px;
-  background: #e0e7ff;
+  background: #e0e7ff; /* Light mode avatar background */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -70,14 +69,14 @@
 }
 
 .message-content {
-  background: #f3f4f6;
+  background: #f3f4f6; /* Light mode message background */
   padding: 12px;
   border-radius: 12px;
   border-top-left-radius: 4px;
 }
 
 .message.user .message-content {
-  background: #5865f2;
+  background: #5865f2; /* Light mode user message background */
   color: white;
   border-radius: 12px;
   border-top-right-radius: 4px;
@@ -91,7 +90,7 @@
 }
 
 .option-button {
-  background: white;
+  background: white; /* Light mode option button background */
   border: 1px solid #e5e7eb;
   padding: 6px 12px;
   border-radius: 16px;
@@ -101,7 +100,7 @@
 }
 
 .option-button:hover {
-  background: #f9fafb;
+  background: #f9fafb; /* Light mode hover background */
   border-color: #d1d5db;
 }
 
@@ -127,7 +126,7 @@
 }
 
 .chat-input button {
-  background: #5865f2;
+  background: #5865f2; /* Light mode button background */
   color: white;
   border: none;
   padding: 8px 16px;
@@ -138,7 +137,7 @@
 }
 
 .chat-input button:hover {
-  background: #4f46e5;
+  background: #4f46e5; /* Light mode button hover background */
 }
 
 @keyframes slideIn {
@@ -158,16 +157,16 @@
 }
 
 .chat-messages::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f1f1f1; /* Light mode scrollbar track */
 }
 
 .chat-messages::-webkit-scrollbar-thumb {
-  background: #d1d5db;
+  background: #d1d5db; /* Light mode scrollbar thumb */
   border-radius: 3px;
 }
 
 .chat-messages::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  background: #9ca3af; /* Light mode scrollbar thumb hover */
 }
 
 .typing-indicator {
@@ -179,7 +178,7 @@
 .typing-indicator span {
   width: 8px;
   height: 8px;
-  background-color: #90959f;
+  background-color: #90959f; /* Light mode typing indicator */
   border-radius: 50%;
   animation: bounce 1.4s infinite ease-in-out;
 }
@@ -210,7 +209,7 @@
 }
 
 .chat-input input:disabled {
-  background-color: #f3f4f6;
+  background-color: #f3f4f6; /* Light mode disabled input */
   cursor: not-allowed;
 }
 
@@ -219,34 +218,52 @@
   cursor: not-allowed;
 }
 
-.typing-indicator {
-  display: flex;
-  gap: 4px;
-  padding: 4px 8px;
+/* Dark mode styles */
+[data-theme="dark"] .helper-chat {
+  background: #2f3136; /* Dark background for chat */
 }
 
-.typing-indicator span {
-  width: 8px;
-  height: 8px;
-  background-color: #90959f;
-  border-radius: 50%;
-  animation: bounce 1.4s infinite ease-in-out;
+[data-theme="dark"] .chat-header {
+  background: #40444b; /* Dark header background */
 }
 
-.typing-indicator span:nth-child(1) {
-  animation-delay: -0.32s;
-}
-.typing-indicator span:nth-child(2) {
-  animation-delay: -0.16s;
+[data-theme="dark"] .bot-avatar {
+  background: #4b5563; /* Darker avatar background */
 }
 
-@keyframes bounce {
-  0%,
-  80%,
-  100% {
-    transform: scale(0);
-  }
-  40% {
-    transform: scale(1);
-  }
+[data-theme="dark"] .message-content {
+  background: #3b3f45; /* Darker message background */
+}
+
+[data-theme="dark"] .message.user .message-content {
+  background: #5865f2; /* User message background remains the same */
+  color: white;
+}
+
+[data-theme="dark"] .option-button {
+  background: #40444b; /* Dark mode option button background */
+  border: 1px solid #555; /* Darker border for option button */
+  color: #ccc; /* Lighter text color for dark mode */
+}
+
+[data-theme="dark"] .option-button:hover {
+  background: #5a5c61; /* Dark mode hover background */
+}
+
+[data-theme="dark"] .chat-input input {
+  border: 1px solid #555; /* Darker border for input */
+  background: #3b3f45; /* Darker input background */
+  color: var(--text); /* White text for dark mode */
+}
+
+[data-theme="dark"] .chat-input button {
+  background: #5865f2; /* Button background remains the same */
+}
+
+[data-theme="dark"] .chat-input button:hover {
+  background: #4f46e5; /* Button hover remains the same */
+}
+
+[data-theme="dark"] .typing-indicator span {
+  background-color: #606770; /* Darker typing indicator */
 }
