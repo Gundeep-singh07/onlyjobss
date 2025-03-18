@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { jobProviderAPI } from "../../../../utils/api";
+import { toast } from "sonner";
 import "./EmployerForm.css";
 
 // Template components for different question types
@@ -151,6 +153,7 @@ const EmployerForm = () => {
   const [answers, setAnswers] = useState({});
   const [error, setError] = useState("");
   const [animation, setAnimation] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Questions array with all the questions we'll ask
   const questions = [
@@ -387,8 +390,8 @@ const EmployerForm = () => {
         setCurrentQuestion(currentQuestion + 1);
         setError("");
       } else {
-        // Instead of showing completion screen, redirect to feed
-        navigate("/feed");
+        // Submit form when reaching the last question
+        handleSubmit();
       }
     }, 300);
   };
@@ -463,23 +466,75 @@ const EmployerForm = () => {
 
   const handleSubmit = async () => {
     try {
+      setIsSubmitting(true);
+
+      // Create form data for file uploads
+      const formData = new FormData();
+
+      // Add form fields to formData
+      Object.keys(answers).forEach((key) => {
+        if (answers[key] instanceof File) {
+          formData.append(key, answers[key]);
+        } else {
+          formData.append(key, answers[key]);
+        }
+      });
+
+      // Register as job provider
+      const registrationData = {
+        name: answers.name,
+        email: answers.email,
+        password: answers.password,
+        phone: answers.phone,
+        position: answers.position,
+        companyName: answers.companyName,
+        industry: answers.industry,
+        description: answers.description,
+        summary: answers.summary,
+        hq: answers.hq,
+        numEmployees: answers.numEmployees,
+        hirePositions: answers.hirePositions,
+        link: answers.link || "",
+        skills: answers.skills,
+      };
+
       const response = await fetch(
-        "http://localhost:3003/login-signup/signup-backend/employer",
+        "http://localhost:3004/api/auth/register/job-provider",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(answers),
+          body: JSON.stringify(registrationData),
         }
       );
 
       const data = await response.json();
+
       if (response.ok) {
+        // Save token to localStorage
+        localStorage.setItem("token", data.token);
+
+        // Upload profile picture and logo if provided
+        if (answers.pfp || answers.logo) {
+          // Handle file uploads here
+          // Implement file upload logic to your backend
+        }
+
+        toast.success("Registration successful!");
         navigate("/feed");
       } else {
-        setError(data.message || "Signup failed. Please try again.");
+        setError(data.message || "Registration failed. Please try again.");
+        toast.error(data.message || "Registration failed");
+        // Go back to first question if email is already in use
+        if (data.message === "Email already in use") {
+          setCurrentQuestion(1);
+        }
       }
     } catch (err) {
+      console.error("Registration error:", err);
       setError("An error occurred. Please try again.");
+      toast.error("Registration failed: Network error");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 

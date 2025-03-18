@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
   const location = useLocation();
 
   // ✅ Only show NavBar on non-dashboard pages
-  const showNavbar = !location.pathname.startsWith("/dashboard");
+  const showNavbar = location.pathname === "/";
 
   // Only show help button on home page
   const showHelpButton = location.pathname === "/";
@@ -133,6 +133,8 @@ const App = () => {
 
           {/* ✅ Dashboard (JobProvider) Route */}
           <Route path="/dashboard/*" element={<JobProviderComponent />} />
+
+          <Route path="*" element={<h1>404 - Not Found</h1>} />
         </Routes>
       </Layout>
     </Router>

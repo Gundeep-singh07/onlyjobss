@@ -50,9 +50,16 @@ app.post("/api/subscribe", async (req, res) => {
       to: email,
       subject: "Welcome to OnlyJobs!",
       html: `
-        <h1>Welcome to OnlyJobs! 🚀</h1>
-        <p>You're now subscribed to receive daily job updates.</p>
-        <p>Get ready for the latest hiring trends and career tips!</p>
+        <h1>Welcome to OnlyJobs – Your Career Growth Starts Now </h1>
+        <p>Welcome to OnlyJobs—your trusted platform for the latest job opportunities and career insights. <p>
+        <p>You are now subscribed to receive daily job updates, helping you stay ahead in the competitive job market.</p>
+        <h2> What You’ll Receive:</h2>
+        <p>📌 Curated job listings from top companies</p>
+        <p>📌 Industry trends & hiring insights to keep you informed</p>
+        <p>📌 Career strategies & expert advice for professional growth</p>
+        <br>
+        <p>We are committed to helping you achieve your career goals with relevant job opportunities and valuable resources. </p>
+        <p>Stay tuned for updates that can shape your future.Wishing you success in your job search.</p>
       `,
     };
 
