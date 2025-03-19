@@ -8,6 +8,13 @@ footer {
   font-size: 14px;
 }
 
+/* Light mode specific styles for footer */
+[data-theme="light"] footer {
+  background: #23272a; /* Consistent dark background in both modes */
+  color: #ffffff;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+}
+
 .footer-content {
   display: flex;
   flex-direction: column;
@@ -191,10 +198,16 @@ footer {
 .social-icon {
   color: white;
   font-size: 20px;
-  transition: color 0.2s;
+  transition: color 0.2s, transform 0.2s;
 }
 
 .social-icon:hover {
+  color: #5865f2;
+  transform: translateY(-3px);
+}
+
+/* Light mode specific styles for social icons */
+[data-theme="light"] .social-icon:hover {
   color: #5865f2;
 }
 
@@ -230,11 +243,30 @@ footer {
 .footer-column ul li a {
   color: white;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s, transform 0.2s;
+  display: inline-block;
+  position: relative;
 }
 
 .footer-column ul li a:hover {
-  text-decoration: underline;
+  color: #5865f2;
+  transform: translateX(3px);
+}
+
+/* Add underline animation on hover */
+.footer-column ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #5865f2;
+  transition: width 0.3s ease;
+}
+
+.footer-column ul li a:hover::after {
+  width: 100%;
 }
 
 /* Footer bottom with jobs link */
@@ -265,11 +297,13 @@ footer {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s;
+  transition: color 0.2s, transform 0.2s;
+  display: inline-block;
 }
 
 .jobs-link:hover {
   color: #5865f2;
+  transform: translateY(-2px);
 }
 
 /* Tablet View */
@@ -316,6 +350,22 @@ footer {
 
 [data-theme="dark"] .footer-column h4 {
   color: #5865f2;
+}
+
+[data-theme="dark"] .social-icon:hover {
+  color: #fe95f6;
+}
+
+[data-theme="dark"] .footer-column ul li a:hover {
+  color: #fe95f6;
+}
+
+[data-theme="dark"] .footer-column ul li a::after {
+  background-color: #fe95f6;
+}
+
+[data-theme="dark"] .jobs-link:hover {
+  color: #fe95f6;
 }
 
 .onlyJobs {

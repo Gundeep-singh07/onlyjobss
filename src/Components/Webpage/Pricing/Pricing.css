@@ -2,40 +2,55 @@
 
 .pricing {
   background: #404eed;
+  padding: 60px 16px;
+  min-width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 .pricing-grid {
   display: grid;
   grid-template-columns: 1fr; /* Single column for mobile */
   gap: 24px;
   margin-top: 32px;
   padding: 0 16px; /* Ensuring proper spacing on mobile */
+  width: 100%;
+  max-width: 1200px;
 }
 
 .price-card {
-  background: var(--body-bg); /* Use body background for light mode */
+  background: white; /* Explicit white background for light mode */
   padding: 24px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.price-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .price-card h3 {
   font-size: 20px;
   margin-bottom: 12px;
-  color: var(--dark-text); /* Use dark text color for light mode */
+  color: #333333; /* Dark gray text for better contrast */
 }
 
 .price {
   font-size: 36px;
   font-weight: 700;
   margin: 20px 0;
-  color: var(--dark-text); /* Use dark text color for light mode */
+  color: #222222; /* Darker text for price for better visibility */
 }
 
 .price-features {
   margin: 20px 0;
   text-align: left;
-  color: #000000;
+  color: #444444; /* Slightly darker for better contrast */
 }
 
 .price-features li {
@@ -48,34 +63,60 @@
 
 .price-features li::before {
   content: "✓";
-  color: var(--success);
+  color: #3ba55c; /* Success color for checkmarks */
   font-weight: bold;
 }
 
-/* Dark mode styles */
+.price-cta {
+  background: #333333; /* Dark gray button in light mode */
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 16px;
+}
 
+.price-cta:hover {
+  background: #555555; /* Slightly lighter on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode styles */
 [data-theme="dark"] .pricing {
-  background: #000000; /* Dark background for price card */
+  background: #000000; /* Dark background for pricing section */
+  color: white;
 }
 
 [data-theme="dark"] .price-card {
   background: #2f3136; /* Dark background for price card */
-}
-
-[data-theme="dark"] .pricing-grid {
-  background: #000000; /* Dark background for price card */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] .price-card h3 {
-  color: var(--text); /* White text for headings in dark mode */
+  color: white; /* White text for headings in dark mode */
 }
 
 [data-theme="dark"] .price {
-  color: var(--text); /* White text for price in dark mode */
+  color: white; /* White text for price in dark mode */
 }
 
 [data-theme="dark"] .price-features li {
-  color: white; /* Set list item text color to white in dark mode */
+  color: #e0e0e0; /* Light gray for better readability in dark mode */
+}
+
+[data-theme="dark"] .price-cta {
+  background: #fe95f6; /* Pink button in dark mode */
+  color: white;
+}
+
+[data-theme="dark"] .price-cta:hover {
+  background: #ff9ff8; /* Lighter pink on hover */
+  box-shadow: 0 4px 12px rgba(254, 149, 246, 0.3);
 }
 
 /* Tablet (≥ 768px) */
@@ -83,6 +124,10 @@
   .pricing-grid {
     grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
     gap: 32px;
+  }
+
+  .pricing {
+    padding: 80px 24px;
   }
 }
 
@@ -106,19 +151,42 @@
   .price {
     font-size: 48px;
   }
+
+  .pricing {
+    padding: 100px 40px;
+  }
 }
 
 /* Testimonials Section */
 .testimonials {
-  background: var(--secondary-bg);
+  background: #f9fafb; /* Light gray background for testimonials section */
   text-align: center;
-  padding: 40px 16px;
+  padding: 60px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .testimonial-grid {
   display: grid;
   grid-template-columns: 1fr; /* Single column by default */
   gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.testimonial-card {
+  background: white; /* White background for testimonial cards in light mode */
+  padding: 24px;
+  border-radius: 16px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Tablet (≥ 768px) */
@@ -126,21 +194,32 @@
   .testimonial-grid {
     grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
   }
+
+  .testimonials {
+    padding: 80px 24px;
+  }
 }
 
 /* Desktop (≥ 1024px) */
 @media (min-width: 1024px) {
   .testimonial-grid {
     grid-template-columns: repeat(3, 1fr); /* Three columns on large screens */
-    max-width: 1200px;
+  }
+
+  .testimonials {
+    padding: 100px 40px;
   }
 }
 
-.testimonial-card {
-  background: rgb(0, 0, 0);
+/* Dark mode styles for testimonials */
+[data-theme="dark"] .testimonials {
+  background: #121212; /* Dark background for testimonials section */
+}
 
-  border-radius: 16px;
-  text-align: left;
+[data-theme="dark"] .testimonial-card {
+  background: #2f3136; /* Dark background for testimonial cards */
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Dark mode specific styles for h1 */
@@ -149,10 +228,8 @@
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 16px;
-
   opacity: 1; /* Set opacity to 1 to make it visible */
   animation: gradientAnimation 10s ease infinite; /* Slower gradient animation */
-
   background: linear-gradient(270deg, #404eed, #fe95f6, #ff6f91, #a77bff);
   background-size: 400% 400%;
   -webkit-background-clip: text;
@@ -173,5 +250,26 @@
 }
 
 .p-p {
-  color: #000000;
+  color: #333333; /* Darker text color for better readability */
+  line-height: 1.6;
+}
+
+/* Light mode heading styles */
+.section-title h2 {
+  color: white; /* White text for section titles on colored backgrounds */
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.section-title p {
+  color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Slightly transparent white for descriptions */
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto 32px;
 }

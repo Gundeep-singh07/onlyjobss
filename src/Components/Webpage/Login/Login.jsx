@@ -8,7 +8,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [userType, setUserType] = useState(""); // Can be empty, "jobSeeker", or "jobProvider"
+  const [userType, setUserType] = useState("jobSeeker"); // Default to jobSeeker
 
   const navigate = useNavigate();
 
@@ -104,6 +104,27 @@ function Login() {
 
         <h2>Log in to ONLY JOBS</h2>
 
+        <div className="user-type-toggle">
+          <button
+            className={`toggle-button ${
+              userType === "jobSeeker" ? "active" : ""
+            }`}
+            onClick={() => setUserType("jobSeeker")}
+            type="button"
+          >
+            Job Seeker
+          </button>
+          <button
+            className={`toggle-button ${
+              userType === "jobProvider" ? "active" : ""
+            }`}
+            onClick={() => setUserType("jobProvider")}
+            type="button"
+          >
+            Employer
+          </button>
+        </div>
+
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -125,19 +146,6 @@ function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="userType">I am a (optional)</label>
-            <select
-              id="userType"
-              value={userType}
-              onChange={(e) => setUserType(e.target.value)}
-            >
-              <option value="">Select user type (optional)</option>
-              <option value="jobSeeker">Job Seeker</option>
-              <option value="jobProvider">Employer</option>
-            </select>
           </div>
 
           <div className="remember-forgot">

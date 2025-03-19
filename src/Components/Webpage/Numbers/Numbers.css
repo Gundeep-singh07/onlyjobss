@@ -4,11 +4,42 @@
   color: white;
   padding: 60px 20px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add a subtle pattern overlay for light mode */
+.stats-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 8%
+    ),
+    radial-gradient(
+      circle at 75% 12%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 10%
+    ),
+    radial-gradient(
+      circle at 50% 80%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 8%
+    );
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 .stats-section h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
+  position: relative;
+  font-weight: 700;
 }
 
 .stats-grid {
@@ -17,23 +48,28 @@
   gap: 24px;
   max-width: 95%;
   margin: 0 auto;
+  position: relative;
 }
 
 .ojn {
   color: white;
+  position: relative;
 }
 
 .stat-card {
-  padding: 20px;
+  padding: 24px;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
 }
 
 .stat-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .stat-number {
@@ -49,13 +85,32 @@
 
 /* Dark mode styles */
 [data-theme="dark"] .stats-section {
-  background: black;
+  background: linear-gradient(135deg, #000000, #121212);
   color: var(--text); /* Use white text for dark mode */
+}
+
+[data-theme="dark"] .stats-section::before {
+  background-image: radial-gradient(
+      circle at 20% 30%,
+      rgba(254, 149, 246, 0.05) 0%,
+      transparent 8%
+    ),
+    radial-gradient(
+      circle at 75% 12%,
+      rgba(64, 78, 237, 0.05) 0%,
+      transparent 10%
+    ),
+    radial-gradient(
+      circle at 50% 80%,
+      rgba(254, 149, 246, 0.05) 0%,
+      transparent 8%
+    );
 }
 
 [data-theme="dark"] .stat-card {
   color: var(--text); /* Ensure text is white for readability */
-  background-color: #2f3136;
+  background-color: rgba(47, 49, 54, 0.6);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="dark"] .stat-card p {
@@ -79,7 +134,7 @@
   }
 
   .stat-card {
-    padding: 24px;
+    padding: 28px;
     border-radius: 16px;
   }
 
@@ -89,14 +144,6 @@
 
   .stat-card p {
     font-size: 1.1rem;
-  }
-}
-
-/* Dark mode tablet styles */
-@media (min-width: 600px) {
-  [data-theme="dark"] .stat-card {
-    padding: 24px;
-    border-radius: 16px;
   }
 }
 
@@ -117,7 +164,7 @@
   }
 
   .stat-card {
-    padding: 28px;
+    padding: 32px;
   }
 
   .stat-number {
@@ -129,11 +176,12 @@
   }
 }
 
-/* Dark mode desktop styles */
-@media (min-width: 1024px) {
-  [data-theme="dark"] .stat-card {
-    padding: 28px;
-  }
+/* Light mode specific styles for h2 */
+.ojn {
+  font-size: 45px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
 }
 
 /* Dark mode specific styles for h1 */
@@ -150,6 +198,36 @@
   background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; /* Keep this for gradient effect */
+}
+
+/* Add card entrance animation */
+.stat-card {
+  animation: card-entrance 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stat-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.stat-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.stat-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.stat-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes card-entrance {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Keyframes for gradient animation */

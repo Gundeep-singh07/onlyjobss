@@ -13,13 +13,16 @@
 .section-title h2 {
   font-size: 48px;
   font-weight: 700;
-  color: #000; /* Light mode text color */
+  color: #1f2937; /* Darker text color for better readability in light mode */
   margin-bottom: 16px;
 }
 
 .section-title p {
   font-size: 18px;
-  color: #666; /* Light mode text color */
+  color: #4b5563; /* Slightly darker text for better readability */
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .features-grid {
@@ -35,6 +38,7 @@
   border-radius: 16px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Subtle border */
 }
 
 .feature-card:hover {
@@ -45,18 +49,19 @@
 .feature-icon {
   font-size: 36px;
   margin-bottom: 20px;
+  color: #5865f2; /* Match primary color */
 }
 
 .feature-card h3 {
   font-size: 24px;
   font-weight: 600;
-  color: #111827; /* Light mode text color */
+  color: #1f2937; /* Darker text color for better readability */
   margin-bottom: 12px;
 }
 
 .feature-card p {
   font-size: 16px;
-  color: #6b7280; /* Light mode text color */
+  color: #4b5563; /* Slightly darker text for better readability */
   line-height: 1.6;
 }
 
@@ -65,14 +70,15 @@
   padding: 48px;
   background: linear-gradient(
     135deg,
-    #4f46e5,
+    #5865f2,
     #6366f1
-  ); /* Light mode background */
+  ); /* Using brand colors for gradient */
   border-radius: 16px;
   color: white;
   margin: 64px auto; /* Center the CTA horizontally */
-  width: 50%; /* Set a width for the CTA */
+  width: 90%; /* Wider on mobile */
   max-width: 600px; /* Optional: limit the maximum width */
+  box-shadow: 0 10px 25px rgba(88, 101, 242, 0.2); /* Softer shadow with brand color */
 }
 
 .features-cta h3 {
@@ -83,7 +89,7 @@
 
 .cta-button {
   background: white; /* Light mode button background */
-  color: #4f46e5; /* Light mode button text color */
+  color: #5865f2; /* Brand color for text */
   border: none;
   padding: 16px 32px;
   border-radius: 8px;
@@ -96,6 +102,7 @@
 .cta-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: #f8f9ff; /* Slight color change on hover */
 }
 
 /* Dark mode specific styles */
@@ -122,6 +129,7 @@
 [data-theme="dark"] .feature-card {
   background: #2f3136; /* Dark background for feature cards */
   color: #ffffff; /* White text for feature cards */
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border in dark mode */
 }
 
 [data-theme="dark"] .feature-card h3 {
@@ -132,6 +140,10 @@
   color: #b3b3b3; /* Light grey text for feature card paragraphs */
 }
 
+[data-theme="dark"] .feature-icon {
+  color: #fe95f6; /* Match dark mode primary color */
+}
+
 [data-theme="dark"] .features-cta {
   background: linear-gradient(
     135deg,
@@ -139,8 +151,9 @@
     #6366f1
   ); /* Keep the same gradient for CTA */
 
-  width: 50%;
-  align-items: center;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 10px 25px rgba(254, 149, 246, 0.1); /* Subtle glow with dark mode primary color */
 }
 
 [data-theme="dark"] .cta-button {
@@ -149,7 +162,7 @@
 }
 
 [data-theme="dark"] .cta-button:hover {
-  background: rgba(255, 255, 255, 0.2); /* Faded effect on hover */
+  background: rgba(255, 255, 255, 0.1); /* Faded effect on hover */
 }
 
 /* Media Queries */
@@ -182,6 +195,7 @@
   .features-cta {
     padding: 32px;
     margin-top: 48px;
+    width: 100%;
   }
 
   .features-cta h3 {
@@ -191,6 +205,18 @@
   .cta-button {
     padding: 12px 24px;
     font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .features-cta {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .features-cta {
+    width: 50%;
   }
 }
 

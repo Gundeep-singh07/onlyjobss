@@ -122,10 +122,10 @@ const NavBar = () => {
       </div>
 
       <div className="nav-buttons">
-        <Link to="/login" className="button button-white">
+        <Link to="/login" className="button button-success">
           Log In
         </Link>
-        <Link to="/questions" className="button button-white">
+        <Link to="/questions" className="button button-success">
           Sign Up
         </Link>
 

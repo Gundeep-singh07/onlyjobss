@@ -19,7 +19,7 @@ const Header = () => {
         <div className="cta-group">
           <h3>For Job Seekers</h3>
           <p>Find your dream job and connect with top employers</p>
-          <Link to="/questions/jobseeker" className="button button-white">
+          <Link to="/questions/jobseeker" className="button button-success">
             Create Your Profile
           </Link>
         </div>

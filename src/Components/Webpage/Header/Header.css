@@ -5,7 +5,12 @@
   --secondary-bg: #f6f6f6;
   --dark-text: #23272a;
   --success: #3ba55c;
-  --cta-bg: rgba(255, 255, 255, 0.1);
+  --cta-bg: rgba(
+    255,
+    255,
+    255,
+    0.15
+  ); /* Increased opacity for better visibility */
   --body-bg: #ffffff;
   --body-text: #23272a;
   --heading-color: #ffffff; /* Heading color */
@@ -60,7 +65,9 @@ body {
   line-height: 1.625;
   overflow-x: hidden;
   width: 100%;
-  background-color: var(--text);
+  background-color: var(
+    --body-bg
+  ); /* Changed from var(--text) to var(--body-bg) for light mode */
   color: var(--body-text);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -130,8 +137,8 @@ html {
 }
 
 .button-white {
-  background: var(--text);
-  color: var(--dark-text);
+  background: var(--dark-text);
+  color: var(--text);
 }
 
 .button-white:hover {
@@ -203,6 +210,7 @@ html {
   animation: float 3s ease-in-out infinite;
   width: 100%;
   transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Added shadow for better visibility in light mode */
 }
 
 .cta-group:nth-child(1) {
@@ -217,6 +225,7 @@ html {
   margin-bottom: 12px;
   font-size: 20px;
   color: var(--heading-color);
+  font-weight: 600; /* Added font weight for better visibility */
 }
 
 .cta-group p {
