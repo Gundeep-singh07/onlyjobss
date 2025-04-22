@@ -154,6 +154,28 @@ const JobApplicationForm = () => {
   const [error, setError] = useState("");
   const [animation, setAnimation] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Check for saved theme in localStorage
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      setDarkMode(true);
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.setItem("theme", newDarkMode ? "dark" : "light");
+    document.documentElement.setAttribute(
+      "data-theme",
+      newDarkMode ? "dark" : "light"
+    );
+  };
 
   // Questions array with all the questions we'll ask
   const questions = [

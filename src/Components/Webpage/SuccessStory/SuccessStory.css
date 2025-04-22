@@ -1,6 +1,11 @@
+body {
+  background-color: #f9fafb;
+  margin: 0;
+}
+
 /* Testimonials Section */
 .testimonials {
-  background: white;
+  background: linear-gradient(to bottom, #a77bff, #ffffff);
   text-align: center;
   padding: 40px 16px;
   margin-top: 0;
@@ -44,7 +49,7 @@
 /* Dark mode styles for testimonial cards */
 
 [data-theme="dark"] .testimonials {
-  background: #000000; /* Dark background for testimonials section */
+  background: #06080d; /* Dark background for testimonials section */
 }
 
 [data-theme="dark"] .testimonial-card {
@@ -60,11 +65,6 @@
 
 /* Dark mode specific styles for h1 */
 [data-theme="dark"] .tnlu {
-  font-size: 45px;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 16px;
-
   opacity: 1; /* Set opacity to 1 to make it visible */
   animation: gradientAnimation 10s ease infinite; /* Slower gradient animation */
 

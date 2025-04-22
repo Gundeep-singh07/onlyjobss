@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Features.css";
 
 const Features = () => {
@@ -65,7 +66,9 @@ const Features = () => {
 
       <div className="features-cta">
         <h3>Ready to take your career to the next level?</h3>
-        <button className="cta-button">Get Started Now</button>
+        <Link to="/questions" className="cta-link">
+          <button className="cta-button">Get Started Now</button>
+        </Link>
       </div>
     </section>
   );

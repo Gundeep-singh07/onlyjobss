@@ -2,11 +2,7 @@
 .faq-section {
   text-align: center;
   padding: 60px 20px;
-  background: linear-gradient(
-    135deg,
-    #404eed,
-    #5865f2
-  ); /* Light mode background */
+  background: #ffffff; /* Light mode background */
   color: white; /* Light mode text color */
 }
 
@@ -51,7 +47,7 @@
 
 .faq-question {
   padding: 18px;
-  background: rgba(255, 255, 255, 0.8); /* Light mode question background */
+  background: #00000026; /* Light mode question background */
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -63,7 +59,7 @@
 }
 
 .faq-question:hover {
-  background: rgba(255, 255, 255, 1); /* Light mode hover background */
+  background: #404eed4a; /* Light mode hover background */
 }
 
 .faq-question::after {
@@ -81,7 +77,7 @@
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.95); /* Light mode answer background */
+  background: #0000000c; /* Light mode answer background */
   color: #333; /* Light mode text color */
 }
 
@@ -91,7 +87,7 @@
 }
 /* Dark mode styles */
 [data-theme="dark"] .faq-section {
-  background: #000000; /* Pure black background */
+  background: #06080d; /* Pure black background */
   color: var(--text); /* Use white text for dark mode */
 }
 
@@ -114,16 +110,11 @@
 }
 
 [data-theme="dark"] .faq-question:hover {
-  background: rgba(
-    255,
-    255,
-    255,
-    0.3
-  ); /* Lighter hover background for dark mode */
+  background: #fe95f64a; /* Lighter hover background for dark mode */
 }
 
 [data-theme="dark"] .faq-answer {
-  background: rgba(255, 255, 255, 0.2); /* Darker background for answer */
+  background: rgba(0, 0, 0, 0.055); /* Darker background for answer */
   color: var(--text); /* White text for dark mode */
 }
 
@@ -151,21 +142,6 @@
   }
 }
 
-/* Dark mode tablet styles */
-@media (min-width: 600px) {
-  [data-theme="dark"] .faq-item {
-    background: rgba(255, 255, 255, 0.1); /* Darker background for FAQ items */
-  }
-
-  [data-theme="dark"] .faq-question {
-    background: rgba(255, 255, 255, 0.2); /* Darker background for question */
-  }
-
-  [data-theme="dark"] .faq-answer {
-    background: rgba(255, 255, 255, 0.2); /* Darker background for answer */
-  }
-}
-
 /* Desktop Styles */
 @media (min-width: 1024px) {
   .faq-section {
@@ -189,27 +165,8 @@
   }
 }
 
-/* Dark mode desktop styles */
-@media (min-width: 1024px) {
-  [data-theme="dark"] .faq-item {
-    background: rgba(255, 255, 255, 0.1); /* Darker background for FAQ items */
-  }
-
-  [data-theme="dark"] .faq-question {
-    background: rgba(255, 255, 255, 0.2); /* Darker background for question */
-  }
-
-  [data-theme="dark"] .faq-answer {
-    background: rgba(255, 255, 255, 0.2); /* Darker background for answer */
-  }
-}
-
 /* Dark mode specific styles for h1 */
 [data-theme="dark"] .tnlu {
-  font-size: 45px;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 16px;
 
   opacity: 1; /* Set opacity to 1 to make it visible */
   animation: gradientAnimation 10s ease infinite; /* Slower gradient animation */

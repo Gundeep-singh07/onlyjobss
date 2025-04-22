@@ -1,8 +1,9 @@
-.nitro-container {
+/* Base container and layout */
+.ojn-container {
   width: 100%;
   min-height: 100vh;
-  background-color: #0a0a0c;
-  color: #ffffff;
+  background-color: var(--nitro-background);
+  color: var(--nitro-foreground);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,19 +11,50 @@
   position: relative;
   overflow: hidden;
   padding: 1rem;
+  transition: all 0.5s ease-in-out;
 }
 
-.nitro-background {
+.ojn-background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 50% 50%, #10101a 0%, #080810 100%);
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--nitro-gradient-start),
+    var(--nitro-gradient-end)
+  );
   z-index: 0;
+  transition: background 0.5s ease;
 }
 
-.nitro-content {
+/* Theme toggle button */
+.ojn-theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: 1px solid var(--nitro-border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s ease;
+  color: var(--nitro-foreground);
+}
+
+.ojn-theme-toggle:hover {
+  transform: scale(1.1);
+  border-color: var(--nitro-accent);
+}
+
+/* Content */
+.ojn-content {
   position: relative;
   z-index: 10;
   display: flex;
@@ -31,10 +63,10 @@
   justify-content: center;
   max-width: 1200px;
   width: 100%;
-  animation: fadeIn 1s ease-out forwards;
+  animation: ojnFadeIn 1s ease-out forwards;
 }
 
-.nitro-heading {
+.ojn-heading {
   font-size: clamp(1.5rem, 5vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 2rem;
@@ -42,26 +74,216 @@
   letter-spacing: -0.02em;
 }
 
-.nitro-text {
+.ojn-gradient-text {
   display: inline-block;
   background: linear-gradient(
     90deg,
-    #ff6b6b,
-    #ffb400,
-    #30e3ca,
-    #6979f8,
-    #b15eff,
-    #ff6b6b
+    var(--nitro-gradient-1),
+    var(--nitro-gradient-2),
+    var(--nitro-gradient-3),
+    var(--nitro-gradient-4),
+    var(--nitro-gradient-5),
+    var(--nitro-gradient-6)
   );
   background-size: 500% 500%;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   font-weight: 900;
-  animation: textGradient 3s ease-in-out infinite alternate;
+  animation: ojnTextGradient 3s ease-in-out infinite alternate;
 }
 
-@keyframes textGradient {
+.ojn-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  margin-bottom: 4rem;
+  text-align: center;
+  max-width: 600px;
+  line-height: 1.6;
+  color: var(--nitro-text-secondary);
+}
+
+/* 3D Cube */
+.ojn-3d-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 2rem auto;
+  perspective: 800px;
+  padding-left: 50px;
+}
+
+.ojn-cube-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-out;
+  animation: ojnFloat 6s ease-in-out infinite;
+}
+
+.ojn-cube-face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: var(--nitro-cube-bg);
+  border: 1px solid var(--nitro-cube-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px var(--nitro-cube-shadow);
+  transition: all 0.3s ease-out;
+}
+
+/* Position the cube faces correctly */
+.ojn-cube-face:nth-child(1) {
+  transform: translateZ(100px);
+}
+.ojn-cube-face:nth-child(2) {
+  transform: rotateY(180deg) translateZ(100px);
+}
+.ojn-cube-face:nth-child(3) {
+  transform: rotateY(90deg) translateZ(100px);
+}
+.ojn-cube-face:nth-child(4) {
+  transform: rotateY(-90deg) translateZ(100px);
+}
+.ojn-cube-face:nth-child(5) {
+  transform: rotateX(90deg) translateZ(100px);
+}
+.ojn-cube-face:nth-child(6) {
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+/* Theme Popup */
+.ojn-theme-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+
+.ojn-popup-content {
+  background-color: var(--theme-popup-bg);
+  border: 1px solid var(--theme-popup-border);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.ojn-popup-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--theme-popup-title);
+}
+
+.ojn-theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.ojn-theme-preview {
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border: 2px solid transparent;
+  height: 180px;
+}
+
+.ojn-theme-preview.ojn-selected {
+  border-color: #ffffff;
+  transform: scale(1.05);
+}
+
+.ojn-preview-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ojn-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ojn-theme-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.ojn-theme-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+}
+
+.ojn-check-icon {
+  color: white;
+  margin-left: auto;
+}
+
+.ojn-popup-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.ojn-select-button,
+.ojn-cancel-button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ojn-select-button {
+  background: var(--nitro-button-bg);
+  color: white;
+  border: none;
+}
+
+.ojn-cancel-button {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Animations */
+@keyframes ojnFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes ojnTextGradient {
   0% {
     background-position: 0% 50%;
   }
@@ -73,135 +295,42 @@
   }
 }
 
-.nitro-subtitle {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 400;
-  margin-bottom: 4rem;
-  text-align: center;
-  max-width: 600px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.nitro-3d-container {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  margin: 2rem auto;
-  perspective: 800px;
-  padding-left: 50px;
-}
-
-.nitro-cube-wrapper {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.3s ease-out;
-  animation: float 6s ease-in-out infinite;
-}
-
-.nitro-cube-face {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background: rgba(64, 78, 237, 0.1);
-  border: 1px solid rgba(254, 149, 246, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: 700;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 10px 30px rgba(64, 78, 237, 0.2);
-  transition: all 0.3s ease-out;
-}
-
-.nitro-cube-face:hover {
-  background: rgba(64, 78, 237, 0.2);
-  border-color: rgba(254, 149, 246, 0.5);
-}
-
-.nitro-cube-face:nth-child(1) {
-  transform: translateZ(100px);
-}
-.nitro-cube-face:nth-child(2) {
-  transform: rotateY(180deg) translateZ(100px);
-}
-.nitro-cube-face:nth-child(3) {
-  transform: rotateY(90deg) translateZ(100px);
-}
-.nitro-cube-face:nth-child(4) {
-  transform: rotateY(-90deg) translateZ(100px);
-}
-.nitro-cube-face:nth-child(5) {
-  transform: rotateX(90deg) translateZ(100px);
-}
-.nitro-cube-face:nth-child(6) {
-  transform: rotateX(-90deg) translateZ(100px);
-}
-
-.nitro-glowing-orb {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at center,
-    rgba(254, 149, 246, 0.2),
-    rgba(64, 78, 237, 0.1) 70%,
-    transparent
-  );
-  filter: blur(30px);
-  opacity: 0.7;
-  animation: pulse 4s ease-in-out infinite;
-}
-
-.nitro-orb-1 {
-  top: 10%;
-  left: 20%;
-}
-
-.nitro-orb-2 {
-  bottom: 20%;
-  right: 10%;
-}
-
-.nitro-footer {
-  margin-top: 4rem;
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.6);
-  text-align: center;
+@keyframes ojnFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive styles */
 @media (max-width: 768px) {
-  .nitro-3d-container {
+  .ojn-3d-container {
     width: 220px;
     height: 220px;
   }
 
-  .nitro-cube-face {
+  .ojn-cube-face {
     width: 150px;
     height: 150px;
   }
 
-  .nitro-cube-face:nth-child(1) {
-    transform: translateZ(75px);
+  .ojn-theme-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   }
-  .nitro-cube-face:nth-child(2) {
-    transform: rotateY(180deg) translateZ(75px);
+
+  .ojn-theme-preview {
+    height: 150px;
   }
-  .nitro-cube-face:nth-child(3) {
-    transform: rotateY(90deg) translateZ(75px);
+
+  .ojn-theme-name {
+    font-size: 0.9rem;
   }
-  .nitro-cube-face:nth-child(4) {
-    transform: rotateY(-90deg) translateZ(75px);
-  }
-  .nitro-cube-face:nth-child(5) {
-    transform: rotateX(90deg) translateZ(75px);
-  }
-  .nitro-cube-face:nth-child(6) {
-    transform: rotateX(-90deg) translateZ(75px);
-  }
+}
+
+.ojn-emoji-icon {
+  font-size: 30px;
 }

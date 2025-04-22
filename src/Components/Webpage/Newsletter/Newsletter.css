@@ -1,30 +1,29 @@
 .newsletter {
-  background: linear-gradient(
-    135deg,
-    #5865f2,
-    #404eed
-  ); /* Updated gradient for light mode */
+  background: linear-gradient(to bottom, #ffffff, #fe95f6);
   color: var(--text); /* Light mode text color */
   padding: 60px 20px;
   text-align: center;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+}
+.button-success {
+  border: none;
 }
 
 .newsletter h2 {
-  color: white; /* Light mode heading color */
+  opacity: 1; /* Set opacity to 1 to make it visible */
+  animation: gradientAnimation 10s ease infinite; /* Slower gradient animation */
+
+  background: linear-gradient(270deg, #ff6f91, #a77bff, #404eed, #fe95f6);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Keep this for gradient effect */
   font-size: 24px;
   margin-bottom: 12px;
-  font-weight: 700;
 }
 
 .newsletter p {
+  color: #404eed;
   font-size: 16px;
   margin-bottom: 20px;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
 }
 
 .newsletter-form {
@@ -37,42 +36,16 @@
 
 .newsletter-input {
   width: 100%;
-  padding: 14px 18px;
+  padding: 12px 16px;
   border-radius: 30px;
   border: none;
   font-size: 14px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.newsletter-input:focus {
-  outline: none;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
-}
-
-.newsletter-button {
-  padding: 14px 18px;
-  border-radius: 30px;
-  border: none;
-  background-color: #fff;
-  color: var(--primary);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.newsletter-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Dark mode styles */
 [data-theme="dark"] .newsletter {
-  background: linear-gradient(to bottom, #000000, #00111e);
+  background: linear-gradient(to bottom, #06080d, #00111e);
   color: var(--text);
-  padding: 40px 24px;
-  font-size: 14px;
 }
 
 [data-theme="dark"] .newsletter h2 {
@@ -81,15 +54,6 @@
 
 [data-theme="dark"] .newsletter p {
   color: #ccc; /* Lighter paragraph color for dark mode */
-}
-
-[data-theme="dark"] .newsletter-button {
-  background-color: var(--dark-primary);
-  color: white;
-}
-
-[data-theme="dark"] .newsletter-button:hover {
-  background-color: #e084e7;
 }
 
 /* Tablet View */
@@ -118,6 +82,17 @@
   }
 }
 
+/* Dark mode tablet styles */
+@media (min-width: 600px) {
+  [data-theme="dark"] .newsletter h2 {
+    color: white; /* Ensure heading color is white in dark mode */
+  }
+
+  [data-theme="dark"] .newsletter p {
+    color: #ccc; /* Ensure paragraph color is lighter in dark mode */
+  }
+}
+
 /* Desktop View */
 @media (min-width: 1024px) {
   .newsletter {
@@ -133,13 +108,19 @@
   }
 }
 
+/* Dark mode desktop styles */
+@media (min-width: 1024px) {
+  [data-theme="dark"] .newsletter h2 {
+    color: white; /* Ensure heading color is white in dark mode */
+  }
+
+  [data-theme="dark"] .newsletter p {
+    color: #ccc; /* Ensure paragraph color is lighter in dark mode */
+  }
+}
+
 /* Dark mode specific styles for h1 */
 [data-theme="dark"] .su {
-  font-size: 35px;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 16px;
-
   opacity: 1; /* Set opacity to 1 to make it visible */
   animation: gradientAnimation 10s ease infinite; /* Slower gradient animation */
 
@@ -149,7 +130,19 @@
   -webkit-text-fill-color: transparent; /* Keep this for gradient effect */
 }
 
-/* Tick mark animation styles */
+/* Keyframes for gradient animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .tick-mark {
   animation: tick-animation 0.5s ease forwards;
   opacity: 0; /* Start invisible */
@@ -193,39 +186,5 @@
   }
   100% {
     stroke-dasharray: 20, 0; /* Draw the line */
-  }
-}
-
-/* Light mode specific styles for h1 */
-.su {
-  font-size: 35px;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 16px;
-  color: white;
-  animation: fade-in 0.5s ease-out forwards;
-}
-
-/* Keyframes for gradient animation */
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

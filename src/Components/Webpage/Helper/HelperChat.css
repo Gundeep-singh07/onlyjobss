@@ -180,7 +180,7 @@
   height: 8px;
   background-color: #90959f; /* Light mode typing indicator */
   border-radius: 50%;
-  animation: bounce 1.4s infinite ease-in-out;
+  animation: helper-bounce 1.4s infinite ease-in-out;
 }
 
 .typing-indicator span:nth-child(1) {
@@ -191,7 +191,7 @@
   animation-delay: -0.16s;
 }
 
-@keyframes bounce {
+@keyframes helper-bounce {
   0%,
   80%,
   100% {

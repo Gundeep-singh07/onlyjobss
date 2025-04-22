@@ -4,13 +4,8 @@
   --text: #fff; /* General text color */
   --secondary-bg: #f6f6f6;
   --dark-text: #23272a;
-  --success: #3ba55c;
-  --cta-bg: rgba(
-    255,
-    255,
-    255,
-    0.15
-  ); /* Increased opacity for better visibility */
+  --success: #404eed;
+  --cta-bg: rgba(255, 255, 255, 0.1);
   --body-bg: #ffffff;
   --body-text: #23272a;
   --heading-color: #ffffff; /* Heading color */
@@ -21,7 +16,7 @@
 /* Dark mode variables */
 [data-theme="dark"] {
   --primary: #fe95f6; /* Updated primary color */
-  --background: #000000; /* Background color */
+  --background: #06080d; /* Background color */
   --text: #ffffff; /* Text color */
   --secondary-bg: #404eed; /* Secondary background color */
   --dark-text: #ffffff; /* Dark text color */
@@ -31,10 +26,13 @@
   --body-text: #ffffff; /* Body text color */
   --heading-color: #fe95f6; /* Heading color for dark mode */
   --paragraph-color: #ffffff; /* Paragraph color for dark mode */
-  --accent-color: #404eed; /* Accent color */
+  --accent-color: #fe95f6; /* Accent color */
+  --acha-pink: #f7aaf1;
 }
 
 /* General styles for text elements */
+
+
 h1,
 h2,
 h3,
@@ -52,24 +50,23 @@ p {
   font-family: "gg sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-[data-theme="dark"] html,
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #000000;
-  width: 100%;
-  height: 100%;
-}
-
 body {
   line-height: 1.625;
   overflow-x: hidden;
   width: 100%;
-  background-color: var(
-    --body-bg
-  ); /* Changed from var(--text) to var(--body-bg) for light mode */
+  background-color: var(--text);
   color: var(--body-text);
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: #f9fafb;
+  margin: 0;
+}
+
+[data-theme="dark"] html,
+body {
+  background-color: #06080d;
 }
 
 html {
@@ -86,7 +83,7 @@ html {
 }
 
 .theme-button {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -98,6 +95,10 @@ html {
   transition: all 0.3s ease;
   color: var(--text);
   backdrop-filter: blur(5px);
+}
+
+[data-theme="dark"] .theme-button {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .theme-button:hover {
@@ -115,7 +116,8 @@ html {
 
 /* Hero Section */
 .hero {
-  background: var(--background);
+  background: linear-gradient(to bottom, #1c001e, #fe95f6);
+  color: var(--text);
   padding: 100px 16px 60px;
   text-align: center;
   color: var(--text);
@@ -137,8 +139,8 @@ html {
 }
 
 .button-white {
-  background: var(--dark-text);
-  color: var(--text);
+  background: #404eed;
+  color: var(--dark-text);
 }
 
 .button-white:hover {
@@ -161,7 +163,7 @@ html {
 }
 
 .button-success:hover {
-  background: #2d8b48;
+  background: #5865f2;
 }
 
 .hero h1 {
@@ -172,7 +174,14 @@ html {
   opacity: 0;
   animation: fade-in-up 1s ease-out forwards;
   animation-delay: 0.3s;
-  color: var(--heading-color);
+  animation: fade-in-up 1s ease-out forwards;
+  opacity: 1; /* Set opacity to 1 to make it visible */
+  animation: gradientAnimation 10s ease infinite; /* Slower gradient animation */
+
+  background: linear-gradient(270deg, #a77bff, #ff6f91, #fe95f6, #404eed);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Keep this for gradient effect */
 }
 
 .hero p {
@@ -210,7 +219,6 @@ html {
   animation: float 3s ease-in-out infinite;
   width: 100%;
   transition: background-color 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Added shadow for better visibility in light mode */
 }
 
 .cta-group:nth-child(1) {
@@ -225,7 +233,6 @@ html {
   margin-bottom: 12px;
   font-size: 20px;
   color: var(--heading-color);
-  font-weight: 600; /* Added font weight for better visibility */
 }
 
 .cta-group p {
@@ -280,6 +287,11 @@ html {
   z-index: 999;
   font-size: 24px;
 }
+
+[data-theme="dark"] .floating-button {
+  background-color: #fe95f6;
+}
+
 
 .floating-button.show {
   opacity: 1;
@@ -393,7 +405,7 @@ html {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
   }
 }
 
@@ -583,15 +595,11 @@ html {
 
 /* Dark mode specific styles */
 [data-theme="dark"] .hero {
-  background: linear-gradient(to bottom, #00111e, #000000);
+  background: linear-gradient(to bottom, #00111e, #06080d);
   color: var(--text);
 }
 
 [data-theme="dark"] .fohis {
-  font-size: 65px;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 16px;
   animation: fade-in-up 1s ease-out forwards;
   opacity: 1; /* Set opacity to 1 to make it visible */
   animation: gradientAnimation 10s ease infinite; /* Slower gradient animation */
@@ -634,15 +642,13 @@ html {
 [data-theme="dark"] .button-white:hover,
 [data-theme="dark"] .button-dark:hover,
 [data-theme="dark"] .button-success:hover {
-  background: rgba(64, 78, 237, 0.7); /* Faded version of the accent color */
+  background: var(--acha-pink); /* Faded version of the accent color */
   transition: background 0.3s ease; /* Smooth transition */
 }
 
 /* Dark mode specific styles for CTA buttons */
 [data-theme="dark"] .cta-group {
   background-color: #36393f; /* Dark grey background for the outer div */
-  padding: 20px; /* Add some padding for better spacing */
-  border-radius: 8px; /* Optional: Add rounded corners */
 }
 
 /* Ensure text color is readable in dark mode */

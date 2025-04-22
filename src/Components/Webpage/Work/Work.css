@@ -1,11 +1,16 @@
 /* Mobile-first approach */
+
+body {
+  background-color: #f9fafb;
+  margin: 0;
+}
+
 .how-it-works {
   text-align: center;
   padding: 60px 20px;
-  background: white; /* Light mode background */
+  background: linear-gradient(to bottom, #a77bff, #ffffff);
   color: rgb(0, 0, 0); /* Light mode text color */
   overflow: hidden; /* Prevent horizontal scroll during animations */
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -87,12 +92,8 @@
 
 /* Dark mode styles */
 [data-theme="dark"] .how-it-works {
-  background: #000000; /* Dark background for dark mode */
+  background: #06080d; /* Dark background for dark mode */
   color: var(--text); /* Use white text for dark mode */
-
-  padding: 80px 20px;
-  max-width: 100%; /* Change max-width to 100% to cover full width */
-  margin: 0; /* Remove margin to eliminate borders */
 }
 
 [data-theme="dark"] .section-title p {
@@ -113,10 +114,6 @@
 
 /* Tablet Styles */
 @media (min-width: 768px) {
-  .how-it-works {
-    padding: 80px 40px;
-  }
-
   .steps-container {
     gap: 64px;
     padding: 40px;
@@ -194,11 +191,6 @@
 
 /* Dark mode specific styles for h1 */
 [data-theme="dark"] .tnlu {
-  font-size: 45px;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 16px;
-
   opacity: 1; /* Set opacity to 1 to make it visible */
   animation: gradientAnimation 10s ease infinite; /* Slower gradient animation */
 

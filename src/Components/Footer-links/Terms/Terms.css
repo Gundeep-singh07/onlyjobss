@@ -263,9 +263,6 @@ body {
 
 /* Dark mode specific styles for h1 */
 [data-theme="dark"] .ojn-tc {
-  font-size: 150px; /* Adjust font size as needed */
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 900;
 
   text-align: center; /* Optional */
 
@@ -309,9 +306,6 @@ body {
 
 /* Dark mode specific styles for h1 */
 [data-theme="dark"] .fowy-tc {
-  font-size: 80px; /* Adjust font size as needed */
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 900;
 
   text-align: center; /* Optional */
 

@@ -108,7 +108,11 @@
 }
 
 .nav-links a:hover {
-  color: #ff007f;
+  color: #404eed;
+}
+
+[data-theme="dark"] .nav-links a:hover {
+  color: #fe95f6;
 }
 
 /* Nav buttons - sticky at top */
@@ -151,9 +155,7 @@
 
 /* Theme toggle button styling */
 .theme-button {
-  background-color: transparent;
-  color: var(--text);
-  border: 1px solid var(--text);
+  background-color: var(--acha-pink);
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -167,6 +169,10 @@
 
 .theme-button:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .theme-button  {
+  color: var(--text);
 }
 
 /* Media queries for responsiveness */

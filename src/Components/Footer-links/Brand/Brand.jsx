@@ -54,7 +54,7 @@ const Branding = () => {
 
       {/* Logos Section */}
       <section className="ojn-branding-logos">
-        <h2 className="ojn-section-title">Logos</h2>
+        <h2 className="ojn-section-title1">Logos</h2>
         <div className="ojn-branding-logo-wrapper">
           {logos.map((logo, index) => (
             <div key={index} className="ojn-branding-logo-card">
@@ -81,7 +81,7 @@ const Branding = () => {
 
       {/* Color Palette Section */}
       <section className="ojn-branding-colors">
-        <h2 className="ojn-section-title">Color Palette</h2>
+        <h2 className="ojn-section-title1">Color Palette</h2>
         <div className="ojn-branding-color-wrapper">
           {colors.map((color, index) => (
             <div

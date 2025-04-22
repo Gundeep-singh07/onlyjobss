@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./College.css";
-import NavBar from "../Footer-NavBar/Footer-NavBar";
 
 // SVG Icons
 const Logo = () => (
@@ -52,17 +51,64 @@ const MessageIcon = () => (
   </svg>
 );
 
+const SunIcon = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z"
+      fill="currentColor"
+    />
+    <path
+      d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
+const MoonIcon = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 const College = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("Home");
   const [showNotification, setShowNotification] = useState(false);
   const [animateHero, setAnimateHero] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     // Scroll to top on component mount
     window.scrollTo(0, 0);
 
     setAnimateHero(true);
+
+    // Check for user's preferred color scheme
+    const prefersDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    setDarkMode(prefersDarkMode);
+    updateTheme(prefersDarkMode);
 
     // Show notification after 3 seconds
     const timer = setTimeout(() => {
@@ -76,36 +122,48 @@ const College = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+    updateTheme(!darkMode);
+  };
+
+  const updateTheme = (isDark) => {
+    document.documentElement.setAttribute(
+      "data-theme",
+      isDark ? "dark" : "light"
+    );
+  };
+
   const collegeGroups = [
     {
       id: 1,
       name: "Computer Science",
       members: 2543,
-      imageUrl: "/api/placeholder/80/80",
+      imageUrl: "https://placehold.co/80x80",
     },
     {
       id: 2,
       name: "Business Administration",
       members: 1890,
-      imageUrl: "/api/placeholder/80/80",
+      imageUrl: "https://placehold.co/80x80",
     },
     {
       id: 3,
       name: "Engineering",
       members: 3120,
-      imageUrl: "/api/placeholder/80/80",
+      imageUrl: "https://placehold.co/80x80",
     },
     {
       id: 4,
       name: "Liberal Arts",
       members: 1240,
-      imageUrl: "/api/placeholder/80/80",
+      imageUrl: "https://placehold.co/80x80",
     },
     {
       id: 5,
       name: "Medical Sciences",
       members: 1785,
-      imageUrl: "/api/placeholder/80/80",
+      imageUrl: "https://placehold.co/80x80",
     },
   ];
 
@@ -163,9 +221,8 @@ const College = () => {
 
   return (
     <div className="onlyjobs-app">
-      <NavBar />
       {/* Notification */}
-      {/* <div
+      <div
         className={`onlyjobs-notification ${showNotification ? "show" : ""}`}
       >
         <div className="onlyjobs-notification-content">
@@ -173,13 +230,14 @@ const College = () => {
           <p>New job postings available in your field!</p>
           <button onClick={() => setShowNotification(false)}>×</button>
         </div>
-      </div> */}
+      </div>
 
       <section className="branding-hero">
         <h1 className="ojn-b">
-          OnlyJobs <br></br>College
+          OnlyJobs <br />
+          College
         </h1>
-        <p>A place where all talented college students learn & earn !</p>
+        <p>A place where all talented college students learn & earn!</p>
       </section>
 
       {/* Main content */}
@@ -228,7 +286,7 @@ const College = () => {
             </div>
             <div className="onlyjobs-hero-image">
               <img
-                src="/api/placeholder/500/300"
+                src="https://placehold.co/500x300"
                 alt="Students collaborating"
               />
             </div>
@@ -250,7 +308,7 @@ const College = () => {
                     style={{ "--animation-order": index }}
                   >
                     <div className="onlyjobs-job-card-header">
-                      <img src="/api/placeholder/50/50" alt={job.company} />
+                      <img src="https://placehold.co/50x50" alt={job.company} />
                       <div className="onlyjobs-job-info">
                         <h3>{job.role}</h3>
                         <p>{job.company}</p>
@@ -286,7 +344,7 @@ const College = () => {
                         {event.date.split(",")[0].split(" ")[1]}
                       </span>
                       <span className="month">
-                        {event.date.split(",")[0].split(" ")[0]}
+                        {event.date.split(",")[0].split(" ")[0].substring(0, 3)}
                       </span>
                     </div>
                     <div className="onlyjobs-event-info">
@@ -332,7 +390,7 @@ const College = () => {
                   style={{ "--animation-order": index }}
                 >
                   <img
-                    src="/api/placeholder/80/80"
+                    src="https://placehold.co/80x80"
                     alt={`${resource.title} icon`}
                   />
                   <h3>{resource.title}</h3>
@@ -343,6 +401,11 @@ const College = () => {
           </section>
         </div>
       </main>
+
+      {/* Theme Toggle Button */}
+      <div className="theme-switch" onClick={toggleTheme}>
+        {darkMode ? <SunIcon /> : <MoonIcon />}
+      </div>
     </div>
   );
 };

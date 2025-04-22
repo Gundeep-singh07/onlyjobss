@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import "./NavBar.css";
 import logo from "../../../assets/logo-blue.png";
@@ -43,8 +43,14 @@ const NavBar = () => {
     );
   };
 
+  const navigate = useNavigate();
+
   const toggleView = () => {
-    setIsBookView(!isBookView);
+    if (location.pathname === "/video") {
+      navigate("/");
+    } else {
+      navigate("/video");
+    }
   };
 
   if (location.pathname === "/login" || location.pathname === "/Questions") {

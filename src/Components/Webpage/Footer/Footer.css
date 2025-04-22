@@ -2,17 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap");
 
 footer {
-  background: var(--dark-text);
+  background: linear-gradient(to bottom, #fe95f6, #1c001e);
   color: var(--text);
   padding: 40px 24px;
   font-size: 14px;
-}
-
-/* Light mode specific styles for footer */
-[data-theme="light"] footer {
-  background: #23272a; /* Consistent dark background in both modes */
-  color: #ffffff;
-  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .footer-content {
@@ -49,6 +42,10 @@ footer {
   color: #5865f2;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+[data-theme="dark"] .language-selector h5 {
+  color: #fe95f6;
 }
 
 /* Custom select styling */
@@ -198,16 +195,10 @@ footer {
 .social-icon {
   color: white;
   font-size: 20px;
-  transition: color 0.2s, transform 0.2s;
+  transition: color 0.2s;
 }
 
 .social-icon:hover {
-  color: #5865f2;
-  transform: translateY(-3px);
-}
-
-/* Light mode specific styles for social icons */
-[data-theme="light"] .social-icon:hover {
   color: #5865f2;
 }
 
@@ -229,7 +220,6 @@ footer {
   text-transform: uppercase;
   font-weight: 700;
 }
-
 .footer-column ul {
   list-style: none;
   padding: 0;
@@ -243,42 +233,17 @@ footer {
 .footer-column ul li a {
   color: white;
   text-decoration: none;
-  transition: color 0.2s, transform 0.2s;
-  display: inline-block;
-  position: relative;
+  transition: color 0.2s;
 }
 
 .footer-column ul li a:hover {
-  color: #5865f2;
-  transform: translateX(3px);
-}
-
-/* Add underline animation on hover */
-.footer-column ul li a::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background-color: #5865f2;
-  transition: width 0.3s ease;
-}
-
-.footer-column ul li a:hover::after {
-  width: 100%;
+  text-decoration: underline;
 }
 
 /* Footer bottom with jobs link */
 .footer-bottom {
   margin-top: 32px;
   text-align: center; /* Center the text */
-}
-
-.divider {
-  height: 1px;
-  background-color: #5865f2;
-  margin-bottom: 32px;
 }
 
 .footer-bottom-content {
@@ -297,13 +262,11 @@ footer {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s, transform 0.2s;
-  display: inline-block;
+  transition: color 0.2s;
 }
 
 .jobs-link:hover {
   color: #5865f2;
-  transform: translateY(-2px);
 }
 
 /* Tablet View */
@@ -349,22 +312,6 @@ footer {
 }
 
 [data-theme="dark"] .footer-column h4 {
-  color: #5865f2;
-}
-
-[data-theme="dark"] .social-icon:hover {
-  color: #fe95f6;
-}
-
-[data-theme="dark"] .footer-column ul li a:hover {
-  color: #fe95f6;
-}
-
-[data-theme="dark"] .footer-column ul li a::after {
-  background-color: #fe95f6;
-}
-
-[data-theme="dark"] .jobs-link:hover {
   color: #fe95f6;
 }
 
@@ -375,7 +322,7 @@ footer {
 
   text-align: center; /* Optional */
 
-  background: linear-gradient(270deg, #404eed, #41335d);
+  background: linear-gradient(270deg, #fe95f6, #1c001e);
   background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -386,9 +333,6 @@ footer {
 
 /* Dark mode specific styles for h1 */
 [data-theme="dark"] .onlyJobs {
-  font-size: 280px; /* Adjust font size as needed */
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 900;
 
   text-align: center; /* Optional */
 

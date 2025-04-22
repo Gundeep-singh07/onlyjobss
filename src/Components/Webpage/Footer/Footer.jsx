@@ -187,7 +187,6 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <div className="divider"></div>
         <div className="footer-bottom-content">
           <h1 className="onlyJobs">OnlyJobs</h1>
         </div>

@@ -20,8 +20,10 @@ import EmployerForm from "./Components/Webpage/Questions/Employer/EmployerForm.j
 import Login from "./Components/Webpage/Login/Login.jsx";
 import RoleSelect from "./Components/Webpage/Questions/RoleSelect/RoleSelect.jsx";
 import HelperChat from "./Components/Webpage/Helper/HelperChat.jsx";
-import JobSeekerFeed from "./Components/Job Seeker/Feed/JobSeekerFeed.jsx";
-import JobSeekerProfile from "./Components/Job Seeker/Profile/JobSeekerProfile.jsx";
+import JobSeekerFeed from "./Components/JobSeeker/Feed/JobSeekerFeed.jsx";
+import JobSeekerProfile from "./Components/JobSeeker/Profile/JobSeekerProfile.jsx";
+
+import Payment from "./Components/Payments/Payment.jsx"; // 👈 ye line add karo imports me
 
 import AboutUs from "./Components/Footer-links/About/About.jsx";
 import Branding from "./Components/Footer-links/Brand/Brand.jsx";
@@ -29,9 +31,14 @@ import TermsOfService from "./Components/Footer-links/Terms/Terms.jsx";
 import College from "./Components/Footer-links/College/College.jsx";
 import OnlyJobsDownload from "./Components/Footer-links/Download/Download.jsx";
 import Nitro from "./Components/Footer-links/Nitro/Nitro.tsx";
+import { Blog, CreateBlog } from "./Components/Footer-links/Blog/Blog.jsx";
 
 // ✅ Import the JobProvider Dashboard Component
 import JobProviderComponent from "./Components/JobProvider/JobProvider.tsx";
+import NotFound from "./Components/NotFound/NotFound.jsx";
+
+// // ✅ Import the OnlyJobsVideo Component
+import OnlyJobsVideo from "./Components/Webpage/OnlyJobsVideo/OnlyJobsVideo.jsx";
 
 // Layout component to handle navbar visibility
 const Layout = ({ children }) => {
@@ -119,11 +126,13 @@ const App = () => {
           <Route path="/college" element={<College />} />
           <Route path="/download" element={<OnlyJobsDownload />} />
           <Route path="/nitro" element={<Nitro />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/create-blog" element={<CreateBlog />} />
 
           {/* Questions Flow */}
           <Route path="/questions" element={<RoleSelect />} />
           <Route path="/questions/jobseeker" element={<JobApplicationForm />} />
-          <Route path="/questions/employer" element={<EmployerForm />} />
+          <Route path="/questions/jobprovider" element={<EmployerForm />} />
 
           {/* Job Seeker Feed */}
           <Route path="/feed" element={<JobSeekerFeed />} />
@@ -134,7 +143,12 @@ const App = () => {
           {/* ✅ Dashboard (JobProvider) Route */}
           <Route path="/dashboard/*" element={<JobProviderComponent />} />
 
-          <Route path="*" element={<h1>404 - Not Found</h1>} />
+          {/* ✅ OnlyJobsVideo Route */}
+          {<Route path="/video" element={<OnlyJobsVideo />} />}
+
+          <Route path="*" element={<NotFound />} />
+
+          <Route path="/payment" element={<Payment />} />
         </Routes>
       </Layout>
     </Router>

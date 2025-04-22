@@ -1,39 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
-
     --radius: 0.5rem;
-
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -42,42 +31,319 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-
-    /* Nitro theme colors */
-    --nitro-background: 240 10% 3.9%;
-    --nitro-foreground: 0 0% 98%;
-    --nitro-primary: 238 83% 66%; /* #404eed */
-    --nitro-secondary: 317 100% 79%; /* #fe95f6 */
-    --nitro-accent: 270 90% 80%;
-    --nitro-muted: 240 5% 64.9%;
-    --nitro-border: 240 3.7% 15.9%;
+    /* Nitro default theme colors (dark) */
+    --nitro-background: #0a0a0c;
+    --nitro-foreground: #ffffff;
+    --nitro-gradient-start: #10101a;
+    --nitro-gradient-end: #080810;
+    --nitro-cube-bg: rgba(64, 78, 237, 0.15);
+    --nitro-cube-border: rgba(254, 149, 246, 0.4);
+    --nitro-cube-shadow: rgba(64, 78, 237, 0.25);
+    --nitro-cube-bg-hover: rgba(64, 78, 237, 0.25);
+    --nitro-cube-border-hover: rgba(254, 149, 246, 0.6);
+    --nitro-orb-inner: rgba(254, 149, 246, 0.3);
+    --nitro-orb-outer: rgba(64, 78, 237, 0.15);
+    --nitro-text-secondary: rgba(255, 255, 255, 0.85);
+    --nitro-button-bg: linear-gradient(90deg, #404eed, #6979f8);
+    --nitro-button-shadow: rgba(64, 78, 237, 0.4);
+    --nitro-button-shadow-hover: rgba(64, 78, 237, 0.5);
+    --nitro-gradient-1: #ff6b6b;
+    --nitro-gradient-2: #ffb400;
+    --nitro-gradient-3: #30e3ca;
+    --nitro-gradient-4: #6979f8;
+    --nitro-gradient-5: #b15eff;
+    --nitro-gradient-6: #ff6b6b;
+    --theme-popup-bg: rgba(20, 20, 30, 0.97);
+    --theme-popup-border: rgba(64, 78, 237, 0.4);
+    --theme-popup-title: white;
   }
-
+  /* Sun Theme (Light) */
+  .sun {
+    --nitro-background: #fdfbf7;
+    --nitro-foreground: #222222;
+    --nitro-gradient-start: #fff8dc;
+    --nitro-gradient-end: #ffefd5;
+    --nitro-cube-bg: rgba(255, 180, 0, 0.15);
+    --nitro-cube-border: rgba(255, 180, 0, 0.4);
+    --nitro-cube-shadow: rgba(255, 180, 0, 0.25);
+    --nitro-cube-bg-hover: rgba(255, 180, 0, 0.2);
+    --nitro-cube-border-hover: rgba(255, 180, 0, 0.6);
+    --nitro-orb-inner: rgba(255, 180, 0, 0.3);
+    --nitro-orb-outer: rgba(255, 180, 0, 0.15);
+    --nitro-text-secondary: rgba(34, 34, 34, 0.85);
+    --nitro-button-bg: linear-gradient(90deg, #ffb700, #ffa000);
+    --nitro-button-shadow: rgba(255, 180, 0, 0.4);
+    --nitro-button-shadow-hover: rgba(255, 180, 0, 0.5);
+    --nitro-gradient-1: #ff9a6c;
+    --nitro-gradient-2: #fad0a0;
+    --nitro-gradient-3: #ffd68c;
+    --nitro-gradient-4: #ffe1a0;
+    --nitro-gradient-5: #fad0a0;
+    --nitro-gradient-6: #ff9a6c;
+    --theme-popup-bg: rgba(255, 248, 220, 0.97);
+    --theme-popup-border: rgba(255, 180, 0, 0.4);
+    --theme-popup-title: #222;
+  }
+  /* Moon Theme (Dark) */
+  .moon {
+    --nitro-background: #0a0a0c;
+    --nitro-foreground: #ffffff;
+    --nitro-gradient-start: #10101a;
+    --nitro-gradient-end: #080810;
+    --nitro-cube-bg: rgba(64, 78, 237, 0.1);
+    --nitro-cube-border: rgba(254, 149, 246, 0.3);
+    --nitro-cube-shadow: rgba(64, 78, 237, 0.2);
+    --nitro-cube-bg-hover: rgba(64, 78, 237, 0.2);
+    --nitro-cube-border-hover: rgba(254, 149, 246, 0.5);
+    --nitro-orb-inner: rgba(254, 149, 246, 0.2);
+    --nitro-orb-outer: rgba(64, 78, 237, 0.1);
+    --nitro-text-secondary: rgba(255, 255, 255, 0.8);
+    --nitro-button-bg: linear-gradient(90deg, #404eed, #6979f8);
+    --nitro-button-shadow: rgba(64, 78, 237, 0.3);
+    --nitro-button-shadow-hover: rgba(64, 78, 237, 0.4);
+    --nitro-gradient-1: #ff6b6b;
+    --nitro-gradient-2: #ffb400;
+    --nitro-gradient-3: #30e3ca;
+    --nitro-gradient-4: #6979f8;
+    --nitro-gradient-5: #b15eff;
+    --nitro-gradient-6: #ff6b6b;
+    --theme-popup-bg: rgba(20, 20, 30, 0.95);
+    --theme-popup-border: rgba(64, 78, 237, 0.3);
+    --theme-popup-title: white;
+  }
+  /* Strawberry Theme */
+  .strawberry {
+    --nitro-background: #ff69b4;
+    --nitro-foreground: #ffffff;
+    --nitro-gradient-start: #ff69b4;
+    --nitro-gradient-end: #ff1493;
+    --nitro-cube-bg: rgba(255, 105, 180, 0.15);
+    --nitro-cube-border: rgba(255, 105, 180, 0.4);
+    --nitro-cube-shadow: rgba(255, 105, 180, 0.25);
+    --nitro-cube-bg-hover: rgba(255, 105, 180, 0.25);
+    --nitro-cube-border-hover: rgba(255, 105, 180, 0.6);
+    --nitro-orb-inner: rgba(255, 20, 147, 0.35);
+    --nitro-orb-outer: rgba(255, 105, 180, 0.15);
+    --nitro-text-secondary: rgba(255, 255, 255, 0.9);
+    --nitro-button-bg: linear-gradient(90deg, #ff1493, #ff69b4);
+    --nitro-button-shadow: rgba(255, 20, 147, 0.4);
+    --nitro-button-shadow-hover: rgba(255, 20, 147, 0.5);
+    --nitro-gradient-1: #ffa5c3;
+    --nitro-gradient-2: #ff8eb7;
+    --nitro-gradient-3: #ff76c3;
+    --nitro-gradient-4: #ff61ab;
+    --nitro-gradient-5: #ff499d;
+    --nitro-gradient-6: #ffa5c3;
+    --theme-popup-bg: rgba(255, 105, 180, 0.97);
+    --theme-popup-border: rgba(255, 20, 147, 0.4);
+    --theme-popup-title: white;
+  }
+  /* Watermelon Theme */
+  .watermelon {
+    --nitro-background: #90ee90;
+    --nitro-foreground: #222222;
+    --nitro-gradient-start: #90ee90;
+    --nitro-gradient-end: #32cd32;
+    --nitro-cube-bg: rgba(50, 205, 50, 0.15);
+    --nitro-cube-border: rgba(50, 205, 50, 0.4);
+    --nitro-cube-shadow: rgba(50, 205, 50, 0.25);
+    --nitro-cube-bg-hover: rgba(50, 205, 50, 0.25);
+    --nitro-cube-border-hover: rgba(50, 205, 50, 0.6);
+    --nitro-orb-inner: rgba(50, 205, 50, 0.35);
+    --nitro-orb-outer: rgba(50, 205, 50, 0.15);
+    --nitro-text-secondary: rgba(34, 34, 34, 0.85);
+    --nitro-button-bg: linear-gradient(90deg, #32cd32, #00cd00);
+    --nitro-button-shadow: rgba(50, 205, 50, 0.4);
+    --nitro-button-shadow-hover: rgba(50, 205, 50, 0.5);
+    --nitro-gradient-1: #a8ffce;
+    --nitro-gradient-2: #7ce487;
+    --nitro-gradient-3: #55d456;
+    --nitro-gradient-4: #32cd32;
+    --nitro-gradient-5: #2fb82f;
+    --nitro-gradient-6: #a8ffce;
+    --theme-popup-bg: rgba(144, 238, 144, 0.97);
+    --theme-popup-border: rgba(50, 205, 50, 0.4);
+    --theme-popup-title: #222;
+  }
+  /* Mango Theme */
+  .mango {
+    --nitro-background: #ffd700;
+    --nitro-foreground: #222222;
+    --nitro-gradient-start: #ffd700;
+    --nitro-gradient-end: #ffa500;
+    --nitro-cube-bg: rgba(255, 165, 0, 0.15);
+    --nitro-cube-border: rgba(255, 165, 0, 0.4);
+    --nitro-cube-shadow: rgba(255, 165, 0, 0.25);
+    --nitro-cube-bg-hover: rgba(255, 165, 0, 0.25);
+    --nitro-cube-border-hover: rgba(255, 165, 0, 0.6);
+    --nitro-orb-inner: rgba(255, 215, 0, 0.35);
+    --nitro-orb-outer: rgba(255, 165, 0, 0.2);
+    --nitro-text-secondary: rgba(34, 34, 34, 0.85);
+    --nitro-button-bg: linear-gradient(90deg, #ffa500, #ff8c00);
+    --nitro-button-shadow: rgba(255, 165, 0, 0.4);
+    --nitro-button-shadow-hover: rgba(255, 165, 0, 0.5);
+    --nitro-gradient-1: #f8d565;
+    --nitro-gradient-2: #fda085;
+    --nitro-gradient-3: #ffa500;
+    --nitro-gradient-4: #ff8c00;
+    --nitro-gradient-5: #ff7300;
+    --nitro-gradient-6: #f8d565;
+    --theme-popup-bg: rgba(255, 215, 0, 0.97);
+    --theme-popup-border: rgba(255, 165, 0, 0.4);
+    --theme-popup-title: #222;
+  }
+  /* Banana Theme */
+  .banana {
+    --nitro-background: #fffacd;
+    --nitro-foreground: #222222;
+    --nitro-gradient-start: #fffacd;
+    --nitro-gradient-end: #ffefd5;
+    --nitro-cube-bg: rgba(255, 215, 0, 0.15);
+    --nitro-cube-border: rgba(255, 215, 0, 0.3);
+    --nitro-cube-shadow: rgba(255, 215, 0, 0.2);
+    --nitro-cube-bg-hover: rgba(255, 215, 0, 0.2);
+    --nitro-cube-border-hover: rgba(255, 215, 0, 0.5);
+    --nitro-orb-inner: rgba(255, 215, 0, 0.25);
+    --nitro-orb-outer: rgba(255, 215, 0, 0.15);
+    --nitro-text-secondary: rgba(34, 34, 34, 0.85);
+    --nitro-button-bg: linear-gradient(90deg, #ffcc00, #ffdb58);
+    --nitro-button-shadow: rgba(255, 215, 0, 0.4);
+    --nitro-button-shadow-hover: rgba(255, 215, 0, 0.5);
+    --nitro-gradient-1: #f6efad;
+    --nitro-gradient-2: #f5e590;
+    --nitro-gradient-3: #f3db74;
+    --nitro-gradient-4: #f1d158;
+    --nitro-gradient-5: #efc743;
+    --nitro-gradient-6: #f6efad;
+    --theme-popup-bg: rgba(255, 250, 205, 0.97);
+    --theme-popup-border: rgba(255, 215, 0, 0.4);
+    --theme-popup-title: #222;
+  }
+  /* Robot Theme */
+  .robot {
+    --nitro-background: #add8e6;
+    --nitro-foreground: #222222;
+    --nitro-gradient-start: #add8e6;
+    --nitro-gradient-end: #6495ed;
+    --nitro-cube-bg: rgba(100, 149, 237, 0.15);
+    --nitro-cube-border: rgba(100, 149, 237, 0.4);
+    --nitro-cube-shadow: rgba(100, 149, 237, 0.25);
+    --nitro-cube-bg-hover: rgba(100, 149, 237, 0.25);
+    --nitro-cube-border-hover: rgba(100, 149, 237, 0.6);
+    --nitro-orb-inner: rgba(100, 149, 237, 0.35);
+    --nitro-orb-outer: rgba(100, 149, 237, 0.15);
+    --nitro-text-secondary: rgba(34, 34, 34, 0.85);
+    --nitro-button-bg: linear-gradient(90deg, #6495ed, #4169e1);
+    --nitro-button-shadow: rgba(100, 149, 237, 0.4);
+    --nitro-button-shadow-hover: rgba(100, 149, 237, 0.5);
+    --nitro-gradient-1: #a8c9fd;
+    --nitro-gradient-2: #8fb6fc;
+    --nitro-gradient-3: #7aa3fb;
+    --nitro-gradient-4: #6495ed;
+    --nitro-gradient-5: #4169e1;
+    --nitro-gradient-6: #a8c9fd;
+    --theme-popup-bg: rgba(173, 216, 230, 0.97);
+    --theme-popup-border: rgba(100, 149, 237, 0.4);
+    --theme-popup-title: #222;
+  }
+  /* Neon Theme */
+  .neon {
+    --nitro-background: #111111;
+    --nitro-foreground: #ffffff;
+    --nitro-gradient-start: #000000;
+    --nitro-gradient-end: #111111;
+    --nitro-cube-bg: rgba(0, 255, 255, 0.15);
+    --nitro-cube-border: rgba(0, 255, 0, 0.6);
+    --nitro-cube-shadow: rgba(0, 255, 255, 0.35);
+    --nitro-cube-bg-hover: rgba(0, 255, 255, 0.2);
+    --nitro-cube-border-hover: rgba(0, 255, 0, 0.8);
+    --nitro-orb-inner: rgba(0, 255, 255, 0.4);
+    --nitro-orb-outer: rgba(0, 255, 0, 0.15);
+    --nitro-text-secondary: rgba(255, 255, 255, 0.9);
+    --nitro-button-bg: linear-gradient(90deg, #00ffff, #00ff00);
+    --nitro-button-shadow: rgba(0, 255, 255, 0.4);
+    --nitro-button-shadow-hover: rgba(0, 255, 255, 0.5);
+    --nitro-gradient-1: #00ffff;
+    --nitro-gradient-2: #00ffaa;
+    --nitro-gradient-3: #00ff00;
+    --nitro-gradient-4: #00ffaa;
+    --nitro-gradient-5: #00ffff;
+    --nitro-gradient-6: #00ffff;
+    --theme-popup-bg: rgba(0, 0, 0, 0.97);
+    --theme-popup-border: rgba(0, 255, 255, 0.4);
+    --theme-popup-title: #fff;
+  }
+  /* Alpha Theme */
+  .alpha {
+    --nitro-background: #800080;
+    --nitro-foreground: #ffffff;
+    --nitro-gradient-start: #800080;
+    --nitro-gradient-end: #4b0082;
+    --nitro-cube-bg: rgba(138, 43, 226, 0.15);
+    --nitro-cube-border: rgba(75, 0, 130, 0.4);
+    --nitro-cube-shadow: rgba(138, 43, 226, 0.25);
+    --nitro-cube-bg-hover: rgba(138, 43, 226, 0.25);
+    --nitro-cube-border-hover: rgba(75, 0, 130, 0.6);
+    --nitro-orb-inner: rgba(138, 43, 226, 0.4);
+    --nitro-orb-outer: rgba(75, 0, 130, 0.15);
+    --nitro-text-secondary: rgba(255, 255, 255, 0.9);
+    --nitro-button-bg: linear-gradient(90deg, #9932cc, #4b0082);
+    --nitro-button-shadow: rgba(138, 43, 226, 0.4);
+    --nitro-button-shadow-hover: rgba(138, 43, 226, 0.5);
+    --nitro-gradient-1: #d899c2;
+    --nitro-gradient-2: #ba72b3;
+    --nitro-gradient-3: #9b4ba0;
+    --nitro-gradient-4: #7d2591;
+    --nitro-gradient-5: #4b0082;
+    --nitro-gradient-6: #d899c2;
+    --theme-popup-bg: rgba(128, 0, 128, 0.97);
+    --theme-popup-border: rgba(138, 43, 226, 0.4);
+    --theme-popup-title: #fff;
+  }
+  /* Animal Theme */
+  .animal {
+    --nitro-background: #ff6347;
+    --nitro-foreground: #ffffff;
+    --nitro-gradient-start: #ff6347;
+    --nitro-gradient-end: #ffa07a;
+    --nitro-cube-bg: rgba(255, 127, 80, 0.15);
+    --nitro-cube-border: rgba(255, 127, 80, 0.4);
+    --nitro-cube-shadow: rgba(255, 127, 80, 0.25);
+    --nitro-cube-bg-hover: rgba(255, 127, 80, 0.25);
+    --nitro-cube-border-hover: rgba(255, 127, 80, 0.6);
+    --nitro-orb-inner: rgba(255, 127, 80, 0.35);
+    --nitro-orb-outer: rgba(255, 99, 71, 0.15);
+    --nitro-text-secondary: rgba(255, 255, 255, 0.9);
+    --nitro-button-bg: linear-gradient(90deg, #ff6347, #ff7f50);
+    --nitro-button-shadow: rgba(255, 127, 80, 0.4);
+    --nitro-button-shadow-hover: rgba(255, 127, 80, 0.5);
+    --nitro-gradient-1: #ffa89e;
+    --nitro-gradient-2: #ff9b7a;
+    --nitro-gradient-3: #ff8354;
+    --nitro-gradient-4: #ff6347;
+    --nitro-gradient-5: #ff4500;
+    --nitro-gradient-6: #ffa89e;
+    --theme-popup-bg: rgba(255, 99, 71, 0.97);
+    --theme-popup-border: rgba(255, 127, 80, 0.4);
+    --theme-popup-title: #fff;
+  }
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
-
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
@@ -91,17 +357,14 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
-
 @layer base {
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
   }
 }
-
 /* Add new animations for Nitro page */
 @keyframes float {
   0%,
@@ -112,7 +375,6 @@
     transform: translateY(-10px);
   }
 }
-
 @keyframes pulse {
   0%,
   100% {
@@ -122,7 +384,6 @@
     opacity: 0.8;
   }
 }
-
 @keyframes spin-slow {
   0% {
     transform: rotate(0deg);
@@ -131,7 +392,6 @@
     transform: rotate(360deg);
   }
 }
-
 @keyframes textGradient {
   0% {
     background-position: 0% 50%;
@@ -143,7 +403,6 @@
     background-position: 0% 50%;
   }
 }
-
 @keyframes fadeIn {
   from {
     opacity: 0;
