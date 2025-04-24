@@ -43,11 +43,11 @@ const Branding = () => {
       <div className="ojn-nitro-glowing-orb ojn-nitro-orb-2"></div>
 
       {/* Hero Section */}
-      <section className="ojn-branding-hero">
+      <section className="ojn-branding-hero1">
         <h1 className="ojn-tc">
           OnlyJobs <br></br> Branding
         </h1>
-        <p className="ojn-brand-subtitle">
+        <p className="ojn-brand-subtitle1">
           Download our official branding assets and color codes.
         </p>
       </section>

@@ -31,7 +31,9 @@ import TermsOfService from "./Components/Footer-links/Terms/Terms.jsx";
 import College from "./Components/Footer-links/College/College.jsx";
 import OnlyJobsDownload from "./Components/Footer-links/Download/Download.jsx";
 import Nitro from "./Components/Footer-links/Nitro/Nitro.tsx";
+import Support from "./Components/Footer-links/Support/Support.jsx";
 import { Blog, CreateBlog } from "./Components/Footer-links/Blog/Blog.jsx";
+import Feedback from "./Components/Footer-links/Feedback/Feedback.jsx";
 
 // ✅ Import the JobProvider Dashboard Component
 import JobProviderComponent from "./Components/JobProvider/JobProvider.tsx";
@@ -128,6 +130,8 @@ const App = () => {
           <Route path="/nitro" element={<Nitro />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/create-blog" element={<CreateBlog />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/feedback" element={<Feedback />} />
 
           {/* Questions Flow */}
           <Route path="/questions" element={<RoleSelect />} />

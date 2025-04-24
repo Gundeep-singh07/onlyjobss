@@ -1,0 +1,379 @@
+/* Root theme variables with unique prefixes */
+:root {
+  --sp-primary: #5865f2;
+  --sp-background: linear-gradient(135deg, #ffafbd, #fff 70%);
+  --sp-text: #5865f2;
+  --sp-secondary-bg: #f6f6f6;
+  --sp-dark-text: #23272a;
+  --sp-success: #404eed;
+  --sp-cta-bg: rgba(255, 255, 255, 0.1);
+  --sp-body-bg: #ffffff;
+  --sp-body-text: #23272a;
+  --sp-heading-color: #9b87f5;
+  --sp-paragraph-color: #5865f2;
+  --sp-accent-color: #d946ef;
+}
+
+[data-theme="dark"] {
+  --sp-primary: #fe95f6;
+  --sp-background: #06080d;
+  --sp-text: #ffffff;
+  --sp-secondary-bg: #404eed;
+  --sp-dark-text: #ffffff;
+  --sp-success: #43b581;
+  --sp-cta-bg: rgba(0, 0, 0, 0.3);
+  --sp-body-bg: #000000;
+  --sp-body-text: #ffffff;
+  --sp-heading-color: #fe95f6;
+  --sp-paragraph-color: #ffffff;
+  --sp-accent-color: #fe95f6;
+  --sp-acha-pink: #f7aaf1;
+}
+
+/* Animations with unique names */
+@keyframes spFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes spSlideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation utility classes with unique prefixes */
+.sp_animate_fade_in {
+  animation: spFadeIn 0.6s ease-out forwards;
+}
+
+.sp_animate_slide_up {
+  opacity: 0;
+  animation: spSlideUp 0.6s ease-out forwards;
+}
+
+.sp_delay_100 {
+  animation-delay: 0.1s;
+}
+
+.sp_delay_200 {
+  animation-delay: 0.2s;
+}
+
+.sp_delay_300 {
+  animation-delay: 0.3s;
+}
+
+.sp_delay_400 {
+  animation-delay: 0.4s;
+}
+
+.sp_delay_500 {
+  animation-delay: 0.5s;
+}
+
+/* Container styles */
+.sp_wrapper {
+  min-height: 100vh;
+  background: var(--sp-background);
+  color: var(--sp-body-text);
+  padding: 2rem 1rem;
+  font-family: "Inter", sans-serif;
+  position: relative;
+  animation: spFadeIn 0.6s ease-out;
+}
+
+/* Support header */
+.sp_header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sp_header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--sp-heading-color);
+  margin-bottom: 0.5rem;
+}
+
+.sp_header p {
+  font-size: 1.1rem;
+  color: var(--sp-paragraph-color);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sp_icon {
+  width: 48px;
+  height: 48px;
+  color: var(--sp-accent-color);
+  margin: 0 auto 1rem;
+}
+
+/* Success message styling */
+.sp_success_message {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 3rem 2rem;
+  background-color: var(--sp-body-bg);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.sp_success_content {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sp_success_message h2 {
+  color: var(--sp-heading-color);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.sp_success_message p {
+  color: var(--sp-paragraph-color);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.sp_ticket_id {
+  background-color: var(--sp-secondary-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  font-size: 1.1rem;
+  width: 100%;
+  text-align: center;
+}
+
+[data-theme="dark"] .sp_ticket_id {
+  background-color: rgba(64, 78, 237, 0.15);
+}
+
+/* Form container */
+.sp_form_container {
+  background-color: var(--sp-body-bg);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: spFadeIn 0.6s ease-out;
+}
+
+.sp_form_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.sp_form_field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  animation: spSlideUp 0.6s ease-out;
+}
+
+.sp_full_width {
+  grid-column: span 2;
+}
+
+/* Form inputs */
+.sp_input_field,
+.sp_textarea_field {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.75rem;
+  background-color: white;
+  color: var(--sp-body-text);
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+[data-theme="dark"] .sp_input_field,
+[data-theme="dark"] .sp_textarea_field {
+  background-color: #1a1a1a;
+  border-color: #333;
+  color: var(--sp-text);
+}
+
+.sp_input_field:focus,
+.sp_textarea_field:focus {
+  outline: none;
+  border-color: var(--sp-accent-color);
+  box-shadow: 0 0 0 2px rgba(217, 70, 239, 0.2);
+}
+
+/* Submit button */
+.sp_submit_container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.sp_submit_button {
+  background-color: var(--sp-primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sp_submit_again_btn {
+  background-color: var(--sp-primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 auto; /* This centers the button horizontally */
+}
+
+.sp_submit_button:hover,
+.sp_submit_again_btn:hover {
+  background-color: var(--sp-accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sp_submit_button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.sp_button_icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Support info */
+.sp_support_info {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.sp_info_card {
+  background-color: var(--sp-secondary-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 500px;
+  text-align: center;
+}
+
+[data-theme="dark"] .sp_info_card {
+  background-color: rgba(64, 78, 237, 0.15);
+}
+
+.sp_info_icon {
+  width: 36px;
+  height: 36px;
+  color: var(--sp-accent-color);
+  margin: 0 auto 1rem;
+}
+
+.sp_info_card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--sp-heading-color);
+}
+
+.sp_info_card p {
+  color: var(--sp-paragraph-color);
+  margin-bottom: 0.75rem;
+}
+
+.sp_contact_info {
+  font-weight: 600;
+  color: var(--sp-accent-color);
+}
+
+/* Theme toggle */
+.sp_theme_toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.sp_theme_toggle_btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--sp-body-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.sp_theme_toggle_btn:hover {
+  transform: rotate(15deg);
+}
+
+/* Error message */
+.sp_error_message {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: center;
+  animation: spFadeIn 0.4s ease-out;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .sp_form_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sp_full_width {
+    grid-column: span 1;
+  }
+
+  .sp_form_container {
+    padding: 1.5rem;
+  }
+
+  .sp_header h1 {
+    font-size: 2rem;
+  }
+
+  .sp_success_message {
+    padding: 2rem 1rem;
+  }
+}

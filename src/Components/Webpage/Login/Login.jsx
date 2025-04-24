@@ -10,6 +10,7 @@ function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [userType, setUserType] = useState("jobSeeker"); // Default to jobSeeker
   const [darkMode, setDarkMode] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -41,6 +42,13 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMessage(""); // Clear any previous error messages
+
+    // Basic validation before sending to server
+    if (!email || !password) {
+      setErrorMessage("Please enter both email and password");
+      return;
+    }
 
     try {
       setIsLoading(true);
@@ -53,7 +61,8 @@ function Login() {
       localStorage.setItem("user", JSON.stringify(response.data.user));
 
       // Show success message
-      toast.success("Login successful! Redirecting...");
+      setErrorMessage(""); // Clear any error messages
+      toast.success("LOGIN SUCCESSFUL");
 
       // Redirect to feed after short delay
       setTimeout(() => {
@@ -62,14 +71,28 @@ function Login() {
     } catch (error) {
       console.error("Login error:", error);
 
-      // Show appropriate error message
+      // Simple error handling based on response from server
       if (error.response && error.response.data) {
-        toast.error(
-          error.response.data.message ||
-            "Login failed. Please check your credentials."
-        );
+        if (error.response.status === 401) {
+          if (
+            error.response.data.code === "INVALID_PASSWORD" ||
+            error.response.data.message?.toLowerCase().includes("password")
+          ) {
+            setErrorMessage("WRONG PASSWORD");
+          } else if (
+            error.response.data.code === "USER_NOT_FOUND" ||
+            error.response.data.message?.toLowerCase().includes("user") ||
+            error.response.data.message?.toLowerCase().includes("email")
+          ) {
+            setErrorMessage("WRONG EMAIL");
+          } else {
+            setErrorMessage("ENTER CORRECT EMAIL OR PASSWORD");
+          }
+        } else {
+          setErrorMessage("ENTER CORRECT EMAIL OR PASSWORD");
+        }
       } else {
-        toast.error("Login failed. Please try again later.");
+        setErrorMessage("LOGIN FAILED. Please try again later.");
       }
     } finally {
       setIsLoading(false);
@@ -96,7 +119,7 @@ function Login() {
           background: "none",
           border: "none",
           cursor: "pointer",
-          fontSize: "24px"
+          fontSize: "24px",
         }}
       >
         {darkMode ? (
@@ -201,6 +224,21 @@ function Login() {
         </div>
 
         <form onSubmit={handleSubmit}>
+          {/* Display error message if there is one */}
+          {errorMessage && (
+            <div
+              className="error-alert"
+              style={{
+                color: errorMessage === "LOGIN SUCCESSFUL" ? "green" : "red",
+                textAlign: "center",
+                marginBottom: "15px",
+                fontWeight: "bold",
+              }}
+            >
+              {errorMessage}
+            </div>
+          )}
+
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input

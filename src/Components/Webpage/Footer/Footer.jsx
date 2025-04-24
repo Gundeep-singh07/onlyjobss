@@ -144,10 +144,7 @@ const Footer = () => {
                   <Link to="/brand">Brand</Link>
                 </li>
                 <li>
-                  <Link to="/jobs">Jobs</Link>
-                </li>
-                <li>
-                  <Link to="/acknowledgements">Acknowledgements</Link>
+                  <Link to="/feedback">Feedback</Link>
                 </li>
               </ul>
             </div>
@@ -165,9 +162,6 @@ const Footer = () => {
                 <li>
                   <Link to="/blog">Blog</Link>
                 </li>
-                <li>
-                  <Link to="/feedback">Feedback</Link>
-                </li>
               </ul>
             </div>
 
@@ -175,10 +169,7 @@ const Footer = () => {
               <h4>Policies</h4>
               <ul>
                 <li>
-                  <Link to="/terms">Terms</Link>
-                </li>
-                <li>
-                  <Link to="/privacy">Privacy</Link>
+                  <Link to="/terms">Terms & Conditions</Link>
                 </li>
               </ul>
             </div>

@@ -1,0 +1,438 @@
+.feedbackContainer {
+  --primary: #5865f2;
+  --background: #404eed;
+  --text: #fff;
+  --secondary-bg: #f6f6f6;
+  --dark-text: #23272a;
+  --success: #404eed;
+  --cta-bg: rgba(255, 255, 255, 0.1);
+  --card-bg: white;
+  --input-bg: #f0f2f5;
+  --transition-speed: 0.3s;
+  --backdrop-blur: blur(12px);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --gradient-start: rgba(255, 255, 255, 0.05);
+  --gradient-end: rgba(255, 255, 255, 0.02);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --accent-color: #404eed;
+  --accent-color-rgb: 64, 78, 237;
+
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  background-color: #ffffff;
+  color: #23272a;
+  line-height: 1.6;
+}
+
+/* Dark mode class */
+.darkMode {
+  --primary: #fe95f6;
+  --background: #000000;
+  --text: #ffffff;
+  --secondary-bg: #404eed;
+  --dark-text: #ffffff;
+  --success: #43b581;
+  --cta-bg: rgba(0, 0, 0, 0.3);
+  --card-bg: rgba(17, 19, 24, 0.7);
+  --input-bg: rgba(35, 37, 48, 0.7);
+  --card-border: rgba(254, 149, 246, 0.1);
+  --gradient-start: rgba(254, 149, 246, 0.05);
+  --gradient-end: rgba(254, 149, 246, 0.02);
+  --shadow-color: rgba(254, 149, 246, 0.15);
+  --accent-color: #fe95f6;
+  --accent-color-rgb: 254, 149, 246;
+
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.feedbackHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  padding: 4rem 3rem;
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start),
+    var(--gradient-end)
+  );
+  backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 16px 48px var(--shadow-color);
+}
+
+.feedbackHeader::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    var(--accent-color) 0%,
+    transparent 70%
+  );
+  opacity: 0.1;
+  animation: rotate 20s linear infinite;
+}
+
+.feedbackHeader h1 {
+  color: var(--text);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.feedbackHeader p {
+  color: var(--text);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animatedTitle {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feedbackContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  position: relative;
+}
+
+.feedbackFormContainer,
+.feedbackDisplay {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 2.5rem;
+  backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 16px 48px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedbackFormContainer:hover,
+.feedbackDisplay:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 64px var(--shadow-color);
+}
+
+.feedbackForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--dark-text);
+}
+
+.inputField {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  background: var(--input-bg);
+  color: var(--dark-text);
+  font-size: 1rem;
+  backdrop-filter: var(--backdrop-blur);
+  transition: all 0.3s ease;
+}
+
+.inputField:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.2);
+  transform: scale(1.01);
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.ratingContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.star {
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.star:hover {
+  transform: scale(1.1);
+}
+
+.star.selected {
+  color: var(--accent-color);
+}
+
+.submitButton {
+  background: linear-gradient(135deg, var(--accent-color), var(--primary));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+  box-shadow: 0 8px 32px var(--shadow-color);
+  backdrop-filter: var(--backdrop-blur);
+}
+
+.submitButton:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 48px var(--shadow-color);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.submitButton .icon {
+  transition: transform 0.3s;
+}
+
+.submitButton:hover .icon {
+  transform: translateX(4px);
+}
+
+.errorMessage,
+.successMessage {
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.errorMessage {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #e53935;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.successMessage {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #43a047;
+  border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feedbackDisplay h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--dark-text);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.75rem;
+}
+
+.noFeedback {
+  text-align: center;
+  padding: 2rem;
+  color: var(--dark-text);
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.feedbackList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.feedbackList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.feedbackList::-webkit-scrollbar-track {
+  background: var(--input-bg);
+  border-radius: 10px;
+}
+
+.feedbackList::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-color), var(--primary));
+  border-radius: 10px;
+  border: 2px solid var(--card-bg);
+}
+
+.feedbackItem {
+  background: var(--input-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid var(--card-border);
+  backdrop-filter: var(--backdrop-blur);
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--accent-color);
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.feedbackItem:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 48px var(--shadow-color);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feedbackItemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.feedbackName {
+  font-weight: 600;
+  color: var(--dark-text);
+}
+
+.feedbackDate {
+  font-size: 0.8rem;
+  color: var(--dark-text);
+  opacity: 0.7;
+}
+
+.feedbackRating {
+  display: flex;
+  gap: 2px;
+}
+
+.feedbackMessage {
+  color: var(--dark-text);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.feedbackReactions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.reactionBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.reactionBtn:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .feedbackContent {
+    grid-template-columns: 1fr;
+  }
+
+  .feedbackHeader {
+    padding: 2rem 1rem;
+  }
+
+  .feedbackHeader h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Animations for items loading in sequence */
+.feedbackItem:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.feedbackItem:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.feedbackItem:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.feedbackItem:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.feedbackItem:nth-child(5) {
+  animation-delay: 0.5s;
+}

@@ -53,7 +53,7 @@
 }
 
 /* Hero Section */
-.ojn-branding-hero {
+.ojn-branding-hero1 {
   position: relative;
   padding: 80px 20px;
   text-align: center;
@@ -61,8 +61,8 @@
   animation: ojn-fade-in-up 1s ease-out;
 }
 
-.ojn-brand-title {
-  font-size: 4rem;
+.ojn-tc {
+  font-size: 10rem;
   font-weight: 900;
   margin-bottom: 20px;
   background: linear-gradient(270deg, #404eed, #fe95f6);
@@ -74,7 +74,7 @@
   animation: ojn-gradient-animation 10s ease infinite;
 }
 
-.ojn-brand-subtitle {
+.ojn-brand-subtitle1 {
   font-size: 1.3rem;
   opacity: 0.85;
   margin-top: 10px;

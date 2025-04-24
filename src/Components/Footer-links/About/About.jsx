@@ -7,7 +7,7 @@ import founder1Image from "../../../assets/gundeep.jpeg";
 import founder2Image from "../../../assets/kabeer.jpg";
 // Fix image path using proper import for local images
 import founder3Image from "../../../assets/kanishk.jpeg";
-const founder4Image = "/placeholder.svg";
+import founder4Image from "../../../assets/vaibhavi.jpeg";
 
 const AboutPage = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -156,8 +156,8 @@ const AboutPage = () => {
               />
             </div>
             <div className="ojn-founder-info">
-              <h3>Founder 1</h3>
-              <span>Visionary & CEO</span>
+              <h3>Gundeep Marwah</h3>
+              <span>Founder</span>
             </div>
           </div>
 
@@ -171,8 +171,8 @@ const AboutPage = () => {
               />
             </div>
             <div className="ojn-founder-info">
-              <h3>Founder 2</h3>
-              <span>CTO & Tech Lead</span>
+              <h3>Kabeer Ghai</h3>
+              <span>Founder</span>
             </div>
           </div>
         </div>
@@ -194,8 +194,8 @@ const AboutPage = () => {
               />
             </div>
             <div className="ojn-founder-info">
-              <h3>Founder 3</h3>
-              <span>Marketing Director</span>
+              <h3>Kanishk Kataria</h3>
+              <span>Founder</span>
             </div>
           </div>
 
@@ -209,8 +209,8 @@ const AboutPage = () => {
               />
             </div>
             <div className="ojn-founder-info">
-              <h3>Founder 4</h3>
-              <span>Head of Operations</span>
+              <h3>Vaibhavi Sengar</h3>
+              <span>Founder</span>
             </div>
           </div>
         </div>

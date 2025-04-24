@@ -7,14 +7,23 @@ body {
   height: 100%;
 }
 
+/* ====== Container Styling ====== */
 .onlyjobs-terms-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, sans-serif;
-  color: var(--text-color);
-  line-height: 1.6;
-  background-color: var(--background-color);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  width: 100vw; /* Full viewport width */
+  margin: 0;
+  padding: 0;
+  background: var(--body-bg);
+  animation: fadeIn 0.8s ease forwards;
+  position: absolute; /* Ensures it covers everything */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-x: hidden;
 }
 
 .onlyjobs-terms-header {
@@ -263,7 +272,6 @@ body {
 
 /* Dark mode specific styles for h1 */
 [data-theme="dark"] .ojn-tc {
-
   text-align: center; /* Optional */
 
   background: linear-gradient(270deg, #404eed, #41335d);
@@ -306,7 +314,6 @@ body {
 
 /* Dark mode specific styles for h1 */
 [data-theme="dark"] .fowy-tc {
-
   text-align: center; /* Optional */
 
   background: linear-gradient(270deg, #404eed, #41335d);
