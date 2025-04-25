@@ -80,6 +80,7 @@ const videoVideo = () => {
       <div className="video-content">
         <div className="video-headline-container">
           <h1 className="video-headline">
+            <span>ONLYJOBS</span>
             Connecting Skills <span>With Opportunities</span>
           </h1>
           <p className="video-subheadline">

@@ -35,24 +35,24 @@
 /* Dark Mode Variables */
 [data-theme="dark"] {
   --primary-color: #fe95f6;
-  --secondary-color: #1a1a1a;
+  --secondary-color: #121212;
   --accent-color: #b967b6;
   --text-color: #ffffff;
-  --background-color: #1c001e;
-  --background-gradient: linear-gradient(to bottom, #1c001e, #fe95f6);
-  --card-bg: rgba(30, 30, 30, 0.5);
+  --background-color: #000000;
+  --background-gradient: linear-gradient(to bottom, #000000, #000000);
+  --card-bg: rgba(18, 18, 18, 0.7);
   --card-border: rgba(80, 80, 80, 0.3);
-  --gradient-1: linear-gradient(90deg, #fe95f6, #c77edc);
+  --gradient-1: linear-gradient(90deg, #fe95f6, #e99aff);
   --gradient-2: linear-gradient(90deg, #c77edc, #9b63c3);
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --play-button-bg: rgba(254, 149, 246, 0.2);
-  --play-button-hover: rgba(254, 149, 246, 0.3);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --play-button-bg: rgba(0, 0, 0, 0.2);
+  --play-button-hover: rgba(0, 0, 0, 0.3);
   --overlay-gradient: linear-gradient(
     180deg,
-    rgba(28, 0, 30, 0) 0%,
-    rgba(254, 149, 246, 0.7) 100%
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 100%
   );
-  --floating-element-color: rgba(254, 149, 246, 0.2);
+  --floating-element-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Light Mode Variables */
@@ -292,7 +292,7 @@
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  background: linear-gradient(to bottom, #1c001e, #fe95f6);
+  background: linear-gradient(to bottom, #2f3136, #2f3136);
   color: var(--text-color);
   padding: 100px 16px 60px;
   text-align: center;
