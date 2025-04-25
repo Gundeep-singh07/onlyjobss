@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Sun, Moon, Droplet, Star, Palette, Circle, Check } from "lucide-react";
-import "./nitro.css";
+import "./Nitro.css";
 import "./Nitro-index.css";
 
 const Nitro = () => {
