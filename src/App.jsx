@@ -24,6 +24,7 @@ import JobSeekerFeed from "./Components/JobSeeker/Feed/JobSeekerFeed.jsx";
 import JobSeekerProfile from "./Components/JobSeeker/Profile/JobSeekerProfile.jsx";
 
 import Payment from "./Components/Payments/Payment.jsx"; // 👈 ye line add karo imports me
+import PaymentSuccess from "./Components/Payments/PaymentSuccess.jsx";
 
 import AboutUs from "./Components/Footer-links/About/About.jsx";
 import Branding from "./Components/Footer-links/Brand/Brand.jsx";
@@ -34,6 +35,7 @@ import Nitro from "./Components/Footer-links/Nitro/Nitro.tsx";
 import Support from "./Components/Footer-links/Support/Support.jsx";
 import { Blog, CreateBlog } from "./Components/Footer-links/Blog/Blog.jsx";
 import Feedback from "./Components/Footer-links/Feedback/Feedback.jsx";
+import AIFooter from "./Components/Footer-links/aman-ai/ai-footer.jsx";
 
 // ✅ Import the JobProvider Dashboard Component
 import JobProviderComponent from "./Components/JobProvider/JobProvider.tsx";
@@ -132,6 +134,7 @@ const App = () => {
           <Route path="/create-blog" element={<CreateBlog />} />
           <Route path="/support" element={<Support />} />
           <Route path="/feedback" element={<Feedback />} />
+          <Route path="/ai" element={<AIFooter />} />
 
           {/* Questions Flow */}
           <Route path="/questions" element={<RoleSelect />} />
@@ -153,6 +156,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
 
           <Route path="/payment" element={<Payment />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
         </Routes>
       </Layout>
     </Router>

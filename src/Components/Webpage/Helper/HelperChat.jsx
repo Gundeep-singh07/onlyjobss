@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./HelperChat.css";
+import botAvatar from "../../../assets/onlyjobs-dark-logo.png";
 
 const HelperChat = ({ isOpen, onClose }) => {
   const [messages, setMessages] = useState([
@@ -135,7 +136,7 @@ const HelperChat = ({ isOpen, onClose }) => {
   return (
     <div className="helper-chat">
       <div className="chat-header">
-        <h3>AI Assistant</h3>
+        <h3 className="tnlu">AI Assistant</h3>
         <button className="close-button" onClick={onClose}>
           ×
         </button>
@@ -144,7 +145,12 @@ const HelperChat = ({ isOpen, onClose }) => {
       <div className="chat-messages">
         {messages.map((message, index) => (
           <div key={index} className={`message ${message.type}`}>
-            {message.type === "bot" && <div className="bot-avatar">🤖</div>}
+            {message.type === "bot" && (
+              <div className="bot-avatar">
+                <img src={botAvatar} alt="Bot Avatar" />
+              </div>
+            )}
+
             <div className="message-content">
               <p>{message.text}</p>
               {message.options && (
@@ -165,7 +171,10 @@ const HelperChat = ({ isOpen, onClose }) => {
         ))}
         {loading && (
           <div className="message bot">
-            <div className="bot-avatar">🤖</div>
+            <div className="bot-avatar">
+              <img src={botAvatar} alt="Bot Avatar" />
+            </div>
+
             <div className="message-content">
               <div className="typing-indicator">
                 <span></span>

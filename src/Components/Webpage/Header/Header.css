@@ -32,7 +32,6 @@
 
 /* General styles for text elements */
 
-
 h1,
 h2,
 h3,
@@ -291,7 +290,6 @@ html {
 [data-theme="dark"] .floating-button {
   background-color: #fe95f6;
 }
-
 
 .floating-button.show {
   opacity: 1;

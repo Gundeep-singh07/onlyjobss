@@ -53,12 +53,12 @@ const Work = () => {
   }, []);
 
   return (
-    <section id="how-it-works" className="how-it-works">
-      <div className="section-title">
-        <h2 className="tnlu">How It Works</h2>
+    <section id="how-it-works" className="how-it-works1">
+      <div className="section-title1">
+        <h2 className="tnlu1">How It Works</h2>
         <p>Your journey to success starts here</p>
       </div>
-      <div className="steps-container">
+      <div className="steps-container1">
         {steps.map((step, index) => (
           <div
             className="step-card"
@@ -66,8 +66,8 @@ const Work = () => {
             ref={(el) => (stepsRef.current[index] = el)}
             style={{ animationDelay: `${index * 0.2}s` }}
           >
-            <div className="step-number">{step.number}</div>
-            <div className="step-content">
+            <div className="step-number1">{step.number}</div>
+            <div className="step-content1">
               <h3>{step.title}</h3>
               <p>{step.description}</p>
             </div>

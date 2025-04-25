@@ -5,7 +5,7 @@ body {
   margin: 0;
 }
 
-.how-it-works {
+.how-it-works1 {
   text-align: center;
   padding: 60px 20px;
   background: linear-gradient(to bottom, #a77bff, #ffffff);
@@ -14,29 +14,29 @@ body {
   margin: 0 auto;
 }
 
-.section-title {
+.section-title1 {
   margin-bottom: 60px;
 }
 
-.section-title h2 {
+.section-title1 h2 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
   font-weight: 700;
 }
 
-.section-title p {
+.section-title1 p {
   font-size: 1.1rem;
   color: #666; /* Light mode paragraph color */
 }
 
-.steps-container {
+.steps-container1 {
   display: flex;
   flex-direction: column;
   gap: 48px;
   padding: 20px;
 }
 
-.step-card {
+.step-card1 {
   display: flex;
   align-items: flex-start;
   gap: 24px;
@@ -48,12 +48,12 @@ body {
   background: transparent;
 }
 
-.step-card.step-visible {
+.step-card1.step-visible {
   animation: slideInFromLeft 0.8s forwards ease-out;
   visibility: visible;
 }
 
-.step-number {
+.step-number1 {
   font-size: 64px;
   font-weight: 700;
   color: #5865f2; /* Light mode step number color */
@@ -61,18 +61,18 @@ body {
   min-width: 100px;
 }
 
-.step-content {
+.step-content1 {
   flex: 1;
 }
 
-.step-content h3 {
+.step-content1 h3 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 12px;
   color: #000; /* Light mode heading color */
 }
 
-.step-content p {
+.step-content1 p {
   font-size: 1rem;
   color: #666; /* Light mode paragraph color */
   line-height: 1.6;
@@ -91,106 +91,106 @@ body {
 }
 
 /* Dark mode styles */
-[data-theme="dark"] .how-it-works {
+[data-theme="dark"] .how-it-works1 {
   background: #06080d; /* Dark background for dark mode */
   color: var(--text); /* Use white text for dark mode */
 }
 
-[data-theme="dark"] .section-title p {
+[data-theme="dark"] .section-title1 p {
   color: #aaa; /* Lighter color for paragraph text in dark mode */
 }
 
-[data-theme="dark"] .step-number {
+[data-theme="dark"] .step-number1 {
   color: #fe95f6; /* Change step number color for dark mode */
 }
 
-[data-theme="dark"] .step-content h3 {
+[data-theme="dark"] .step-content1 h3 {
   color: #ffffff; /* White heading color for dark mode */
 }
 
-[data-theme="dark"] .step-content p {
+[data-theme="dark"] .step-content1 p {
   color: #ccc; /* Lighter paragraph color for dark mode */
 }
 
 /* Tablet Styles */
 @media (min-width: 768px) {
-  .steps-container {
+  .steps-container1 {
     gap: 64px;
     padding: 40px;
   }
 
-  .step-number {
+  .step-number1 {
     font-size: 72px;
   }
 
-  .step-content h3 {
+  .step-content1 h3 {
     font-size: 1.75rem;
   }
 
-  .step-content p {
+  .step-content1 p {
     font-size: 1.1rem;
   }
 }
 
 /* Dark mode tablet styles */
 @media (min-width: 768px) {
-  [data-theme="dark"] .step-number {
+  [data-theme="dark"] .step-number1 {
     color: #fe95f6; /* Change step number color for dark mode */
   }
 
-  [data-theme="dark"] .step-content h3 {
+  [data-theme="dark"] .step-content1 h3 {
     color: #ffffff; /* White heading color for dark mode */
   }
 
-  [data-theme="dark"] .step-content p {
+  [data-theme="dark"] .step-content1 p {
     color: #ccc; /* Lighter paragraph color for dark mode */
   }
 }
 
 /* Desktop Styles */
 @media (min-width: 1024px) {
-  .how-it-works {
+  .how-it-works1 {
     padding: 100px 60px;
   }
 
-  .section-title h2 {
+  .section-title1 h2 {
     font-size: 3rem;
   }
 
-  .steps-container {
+  .steps-container1 {
     gap: 80px;
   }
 
-  .step-number {
+  .step-number1 {
     font-size: 96px;
   }
 
-  .step-content h3 {
+  .step-content1 h3 {
     font-size: 2rem;
   }
 
-  .step-content p {
+  .step-content1 p {
     font-size: 1.2rem;
   }
 }
 
 /* Dark mode desktop styles */
 @media (min-width: 1024px) {
-  [data-theme="dark"] .step-number {
+  [data-theme="dark"] .step-number1 {
     color: #fe95f6; /* Change step number color for dark mode */
   }
 
-  [data-theme="dark"] .step-content h3 {
+  [data-theme="dark"] .step-content1 h3 {
     color: #ffffff; /* White heading color for dark mode */
   }
 
-  [data-theme="dark"] .step-content p {
+  [data-theme="dark"] .step-content1 p {
     color: #ccc; /* Lighter paragraph color for dark mode */
   }
 }
 
 /* Dark mode specific styles for h1 */
-[data-theme="dark"] .tnlu {
+[data-theme="dark"] .tnlu1 {
   opacity: 1; /* Set opacity to 1 to make it visible */
   animation: gradientAnimation 10s ease infinite; /* Slower gradient animation */
 

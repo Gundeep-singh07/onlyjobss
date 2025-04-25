@@ -5,14 +5,11 @@ const dotenv = require("dotenv");
 const authRoutes = require("./routes/auth.routes");
 const jobSeekerRoutes = require("./routes/jobSeeker.routes");
 const jobProviderRoutes = require("./routes/jobProvider.routes");
-
 // Load environment variables
 dotenv.config();
-
 // Initialize Express app
 const app = express();
 const PORT = process.env.PORT || 3004;
-
 // CORS configuration
 app.use(
   cors({
@@ -33,28 +30,23 @@ app.use(
     credentials: true,
   })
 );
-
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 // Connect to MongoDB Atlas
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("Connected to MongoDB Atlas"))
   .catch((err) => console.error("MongoDB connection error:", err));
-
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/job-seekers", jobSeekerRoutes);
 app.use("/api/job-providers", jobProviderRoutes);
-
 // Root route
 app.get("/", (req, res) => {
   res.send("OnlyJobs API is running");
 });
-
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(Server running on port ${PORT});
 });

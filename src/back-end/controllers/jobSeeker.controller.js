@@ -5,14 +5,12 @@ const JobPosting = require("../models/jobPosting.model");
 exports.getProfile = async (req, res) => {
   try {
     const jobSeeker = await JobSeeker.findById(req.user.id);
-
     if (!jobSeeker) {
       return res.status(404).json({
         success: false,
         message: "Job seeker not found",
       });
     }
-
     res.status(200).json({
       success: true,
       data: jobSeeker,
@@ -38,10 +36,12 @@ exports.updateProfile = async (req, res) => {
       education: req.body.education,
       skills: req.body.skills,
       summary: req.body.summary,
+      bio: req.body.bio,
       desiredJob: req.body.desiredJob,
       location: req.body.location,
       link: req.body.link,
       goals: req.body.goals,
+      avatar: req.body.avatar,
     };
 
     // Filter out undefined fields
@@ -68,6 +68,90 @@ exports.updateProfile = async (req, res) => {
     });
   } catch (error) {
     console.error("Error updating job seeker profile:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+      error: error.message,
+    });
+  }
+};
+
+// Add new project
+exports.addProject = async (req, res) => {
+  try {
+    const { title, description, technologies, image } = req.body;
+
+    const jobSeeker = await JobSeeker.findById(req.user.id);
+
+    if (!jobSeeker) {
+      return res.status(404).json({
+        success: false,
+        message: "Job seeker not found",
+      });
+    }
+
+    const newProject = {
+      title,
+      description,
+      technologies: Array.isArray(technologies) ? technologies : [],
+      image:
+        image ||
+        "https://integrio.net/static/1542bae35ac6cdd1a583bdeeada0bddd/img-medical-visits.png",
+    };
+
+    jobSeeker.projects.push(newProject);
+    await jobSeeker.save();
+
+    res.status(201).json({
+      success: true,
+      data: newProject,
+    });
+  } catch (error) {
+    console.error("Error adding project:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+      error: error.message,
+    });
+  }
+};
+
+// Delete project
+exports.deleteProject = async (req, res) => {
+  try {
+    const projectId = req.params.id;
+
+    const jobSeeker = await JobSeeker.findById(req.user.id);
+
+    if (!jobSeeker) {
+      return res.status(404).json({
+        success: false,
+        message: "Job seeker not found",
+      });
+    }
+
+    // Find project index
+    const projectIndex = jobSeeker.projects.findIndex(
+      (project) => project._id.toString() === projectId
+    );
+
+    if (projectIndex === -1) {
+      return res.status(404).json({
+        success: false,
+        message: "Project not found",
+      });
+    }
+
+    // Remove project
+    jobSeeker.projects.splice(projectIndex, 1);
+    await jobSeeker.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Project deleted successfully",
+    });
+  } catch (error) {
+    console.error("Error deleting project:", error);
     res.status(500).json({
       success: false,
       message: "Server error",
@@ -105,7 +189,6 @@ exports.getAllJobPostings = async (req, res) => {
 exports.applyForJob = async (req, res) => {
   try {
     const jobPosting = await JobPosting.findById(req.params.id);
-
     if (!jobPosting) {
       return res.status(404).json({
         success: false,
@@ -162,7 +245,6 @@ exports.getJobApplications = async (req, res) => {
       const application = job.applicants.find(
         (app) => app.jobSeeker.toString() === req.user.id
       );
-
       return {
         job: {
           id: job._id,

@@ -112,6 +112,7 @@ const Footer = () => {
             </a>
             <a
               href="https://youtube.com"
+              target="_blank"
               className="social-icon"
               aria-label="Youtube"
             >
@@ -130,6 +131,9 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link to="/nitro">Nitro</Link>
+                </li>
+                <li>
+                  <Link to="/ai">OnlyJobs AI</Link>
                 </li>
               </ul>
             </div>
